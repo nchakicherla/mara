@@ -204,6 +204,10 @@ printedLength(void* obj_in, size_t nested_level, bool oneline) {
             }
             break;    
         }
+
+        default: {
+            ERROR(ARG_ERR, FN, "Input object type invalid (unrecognized)");
+        }
     }
     if(num_char_buf) {
         free(num_char_buf);
@@ -216,6 +220,10 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
 
     size_t output_seq_size = printedLength(obj_in, nested_level, oneline);  // updates to printing should be reflected
                                                                             // in both printedLength and this fn
+    if(output_seq_size == 0) {
+        ERROR(INIT_ERR, FN, "Initialization failed for output_seq_size (printedLength)");
+        return NULL;
+    }
     char* output_seq = NULL; // dynamically allocated and returned, freed outside scope 
     if(!(output_seq = calloc(output_seq_size + 1, sizeof(char)))) {
         throwFatal(FN, "Allocate failed for: output_seq (calloc)");
@@ -380,9 +388,13 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
             *write_tracker = ']';
             break;
         }
+
+        default: {
+            ERROR(ARG_ERR, FN, "Input object type invalid (unrecognized)");
+        }
     }
-    return output_seq;
     output_seq[output_seq_size] = '\0'; // for security, should already be reserved for \0
+    return output_seq;
 }
 
 #endif // GEN_H

@@ -38,9 +38,9 @@
 #endif
 
 #ifdef PRINTLOG
-# define PRINTLOG           true
+# define PRINTLOG           1
 #else
-# define PRINTLOG           false
+# define PRINTLOG           0
 #endif
 
 #ifdef LOG_WARNING

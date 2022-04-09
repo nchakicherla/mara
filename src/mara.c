@@ -16,6 +16,8 @@ int main()
     print(vec1);
     destroyV(1, vec1);
 
+    print("test");
     END_LOG();
+
     return 0;
 }

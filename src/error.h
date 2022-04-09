@@ -69,6 +69,7 @@ closeLog() {
     if(objopslog) {
         fprintf(objopslog, "\nEND\n");
         fclose(objopslog);
+        objopslog = NULL;
     } else {
         ERROR(ARG_ERR, FN, "Log file has not been opened");
         return 1;
