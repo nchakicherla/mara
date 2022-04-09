@@ -29,34 +29,36 @@
 
 //  DEBUG OPTIONS
 
-#ifdef LOGGING
-# define LOGGING            1
+#ifdef ENABLE_LOG
+# define START_LOG()        openLog()
+# define END_LOG()          closeLog()
 #else
-# define LOGGING            0
+# define START_LOG()        //skip function call
+# define END_LOG()          //skip function call
 #endif
 
 #ifdef PRINTLOG
-# define PRINTLOG           1
+# define PRINTLOG           true
 #else
-# define PRINTLOG           0
+# define PRINTLOG           false
 #endif
 
-#ifdef WARNING
-# define WARNING            1
+#ifdef LOG_WARNING
+# define WARN(a, b) setWarning(a, b)
 #else
-# define WARNING            0
+# define WARN(a, b) //skip function call
 #endif
 
-#ifdef ERROR
-# define ERROR              1
+#ifdef LOG_ERROR
+# define ERROR(a, b, c) setError(a, b, c)
 #else
-# define ERROR              0
+# define ERROR(a, b, c) //skip function call
 #endif
 
-#ifdef SUCCESS
-# define SUCCESS            1
+#ifdef LOG_SUCCESS
+# define SUCCESS(a) setSuccess(a)
 #else
-# define SUCCESS            0
+# define SUCCESS(a) //skip function call
 #endif
 
 
@@ -72,7 +74,7 @@
 //  TYPES AND BOUNDS
 
 #define TYPE_OF(arg)       *(int *)arg
-    
+
 #define STR_TYPE            1
 #define ITR_TYPE            2
 #define FLT_TYPE            3
@@ -122,16 +124,16 @@ typedef struct
 }   flt;
 
 typedef struct //key-value pair, unique to DCT, no NO TYPE_OF MEMBER
-    kv {
+    kvp {
         char*       key;
         void*       value;
-}   kv;
+}   kvp;
 
 typedef struct
     hsh {
         int         type;
         size_t      len;
-        kv**        kvptrs;
+        kvp**       kvptrs;
 }   hsh;
 
 typedef struct
@@ -157,7 +159,10 @@ typedef struct
 		void*		data;
 }	mat;
 
-//  FUNCTION DECLARATIONS
+
+////  FUNCTION DECLARATIONS
+////
+
 
 // ERROR
 
@@ -171,7 +176,7 @@ int
 closeLog();
 
 void
-fatalExit(const char* func, const char* desc);
+throwFatal(const char* func, const char* desc);
 
 int
 setSuccess(const char* func);
@@ -255,16 +260,22 @@ duplicateFloat(flt* flt_in);
 // DCT
 
 int
-destroyKeyValuePair(kv* kvp_in);
+destroyKeyValuePair(kvp* kvp_in);
 
-kv*
-duplicateKeyValuePair(kv* kvp_in);
+kvp*
+duplicateKeyValuePair(kvp* kvp_in);
 
 hsh*
 hashInit();
 
 void*
-accessHash(hsh* hash_in, const char* key_in);
+accessHashValue(hsh* hash_in, const char* key_access);
+
+kvp*
+accessHashPair(hsh* hash_in, const char* key_access);
+
+int
+changeKey(hsh* hash_in, const char* key_current, const char* key_new);
 
 int
 addKeyToHash(hsh* hash_in, const char* key_in, void* value_in);

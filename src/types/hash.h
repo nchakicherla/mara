@@ -4,49 +4,49 @@
 #include "../common.h"
 
 int
-destroyKeyValuePair(kv* kvp_in) {
+destroyKeyValuePair(kvp* kvp_in) {
 
     if(kvp_in == NULL) {
-        setError(ARG_ERR, FN, "Input object invalid (NULL)");
+        ERROR(ARG_ERR, FN, "Input object invalid (NULL)");
         return 1;
     }
 
     if(kvp_in->key == NULL) {
-        setWarning(FN, "Input object invalid: kvp_in->key (NULL). Ignoring...");
+        WARN(FN, "Input object invalid: kvp_in->key (NULL). Ignoring...");
     } else {
         free(kvp_in->key);
     }
     destroy(kvp_in->value);
     free(kvp_in);
 
-    setSuccess(FN);
+    SUCCESS(FN);
     return 0;
 }
 
-kv*
-duplicateKeyValuePair(kv* kvp_in) {
+kvp*
+duplicateKeyValuePair(kvp* kvp_in) {
 
     if(kvp_in == NULL) {
-        setError(ARG_ERR, FN, "Input object invalid (NULL)");
+        ERROR(ARG_ERR, FN, "Input object invalid (NULL)");
         return NULL;
     }
 
-    kv* kvp_out = NULL;
-    if(!(kvp_out = malloc(sizeof(kv)))) {
-        fatalExit(FN, "Allocate failed for: kvp_out (malloc)");
+    kvp* kvp_out = NULL;
+    if(!(kvp_out = malloc(sizeof(kvp)))) {
+        throwFatal(FN, "Allocate failed for: kvp_out (malloc)");
     }
     if(!(kvp_out->key = seqDupl(kvp_in->key))) {
-        setError(INIT_ERR, FN, "Initialization failed for: kvp_out->key (seqDupl)");
+        ERROR(INIT_ERR, FN, "Initialization failed for: kvp_out->key (seqDupl)");
         free(kvp_out);
         return NULL;
     }
     if(!(kvp_out->value = duplicate(kvp_in->value))) {
-        setError(INIT_ERR, FN, "Initialization failed for: kvp_out->value (duplicate)");
+        ERROR(INIT_ERR, FN, "Initialization failed for: kvp_out->value (duplicate)");
         free(kvp_out->key);
         free(kvp_out);
         return NULL;
     }
-    setSuccess(FN);
+    SUCCESS(FN);
     return kvp_out;
 }
 
@@ -55,42 +55,93 @@ hashInit() {
 
     hsh* output_hash = NULL;
     if(!(output_hash = malloc(sizeof(hsh)))) {
-        fatalExit(FN, "Allocate failed for: output_hash (malloc)");
+        throwFatal(FN, "Allocate failed for: output_hash (malloc)");
     }
 
     output_hash->type = HSH_TYPE;
     output_hash->len = 0;
     output_hash->kvptrs = NULL;
 
-    setSuccess(FN);
+    SUCCESS(FN);
     return output_hash;
 }
 
 void*
-accessHash(hsh* hash_in, const char* key_in) {
+accessHashValue(hsh* hash_in, const char* key_access) {
 
     if( hash_in == NULL || 
-        key_in == NULL) {
-            setError(ARG_ERR, FN, "Input object(s) invalid (NULL)");
+        key_access == NULL) {
+            ERROR(ARG_ERR, FN, "Input object(s) invalid (NULL)");
             return NULL;        
     }
-    if(hash_in->len == 0){
+    if(hash_in->len == 0) {
         return NULL;
     }
 
     size_t get_loc = HSH_ERR;
     for(size_t i = 0; i < hash_in->len; i++) {
-        if(seqSame(hash_in->kvptrs[i]->key, key_in)) {
+        if(seqSame(hash_in->kvptrs[i]->key, key_access)) {
             get_loc = i;
             break;
         }
     }
     if(get_loc == HSH_ERR) {
+        ERROR(ARG_ERR, FN, "Could not find key in hash");
         return NULL;
     }
 
-    setSuccess(FN);
+    SUCCESS(FN);
     return hash_in->kvptrs[get_loc]->value;
+}
+
+kvp*
+accessHashPair(hsh* hash_in, const char* key_access) {
+
+    if( hash_in == NULL ||
+        key_access == NULL) {
+            ERROR(ARG_ERR, FN, "Argument(s) invalid (NULL)");
+            return NULL;
+    }
+    if(hash_in->len == 0) {
+        return NULL;
+    }
+
+    for(size_t i = 0; i < hash_in->len; i++) {
+        if(seqSame(key_access, hash_in->kvptrs[i]->key)) {
+            SUCCESS(FN);
+            return hash_in->kvptrs[i];
+        }
+    }
+
+    ERROR(ARG_ERR, FN, "Could not find key in hash");
+    return NULL;
+}
+
+int
+changeKey(hsh* hash_in, const char* key_current, const char* key_new) {
+
+    if( hash_in == NULL ||
+        key_current == NULL ||
+        key_new == NULL) {
+            ERROR(ARG_ERR, FN, "Argument(s) invalid (NULL)");
+            return 1;
+    }
+
+    kvp* working_kvp = NULL;
+    char* temp_key = NULL;
+
+    if(!(working_kvp = accessHashPair(hash_in, key_current))) {
+        ERROR(ARG_ERR, FN, "Could not locate key in hash");
+        return 2;
+    }
+
+    if(!(temp_key = seqDupl(key_new))) {
+        throwFatal(FN, "Allocate failed for temp_key (seqDupl)");
+        return 3;
+    }
+    free(working_kvp->key);
+    working_kvp->key = temp_key;
+    return 0;
 }
 
 int
@@ -99,33 +150,33 @@ addKeyToHash(hsh* hash_in, const char* key_in, void* value_in) {
     if( hash_in == NULL ||
         key_in == NULL ||
         value_in == NULL) {
-            setError(ARG_ERR, FN, "Input object(s) invalid (NULL)");
+            ERROR(ARG_ERR, FN, "Input object(s) invalid (NULL)");
             return 1;
     }
     for(size_t i = 0; i < hash_in->len; i++) {
         if(seqSame(hash_in->kvptrs[i]->key, key_in)) {
-            setWarning(FN, "key_in already exists in hash_in");
+            WARN(FN, "key_in already exists in hash_in");
             return 3;
         }
     }
 
-    kv* new_kvp = NULL;
-    if(!(new_kvp = malloc(sizeof(kv)))) {
-        fatalExit(FN, "Allocate failed for: new_kvp (malloc)");
+    kvp* new_kvp = NULL;
+    if(!(new_kvp = malloc(sizeof(kvp)))) {
+        throwFatal(FN, "Allocate failed for: new_kvp (malloc)");
     }
 
     size_t key_length = seqLen(key_in);
     if(!key_length) {
-        setError(ARG_ERR, FN, "Input argument invalid: key_in (key must contain at least 1 character)");
+        ERROR(ARG_ERR, FN, "Input argument invalid: key_in (key must contain at least 1 character)");
         free(new_kvp);
         return 5;
     }
     if(!(new_kvp->key = malloc(key_length + 1))) {
         free(new_kvp);
-        fatalExit(FN, "Allocate failed for: new_kvp->key (malloc)");
+        throwFatal(FN, "Allocate failed for: new_kvp->key (malloc)");
     }
     if(!(new_kvp->value = duplicate(value_in))) {
-        setError(MEM_ERR, FN, "Allocate failed for: new_kvp->value (duplicate)");
+        ERROR(MEM_ERR, FN, "Allocate failed for: new_kvp->value (duplicate)");
         free(new_kvp->key);
         free(new_kvp);
         return 7;
@@ -137,23 +188,23 @@ addKeyToHash(hsh* hash_in, const char* key_in, void* value_in) {
     new_kvp->key[key_length] = '\0';
 
     if(hash_in->len == 0) {
-        if(!(hash_in->kvptrs = malloc(sizeof(kv**)))) {
+        if(!(hash_in->kvptrs = malloc(sizeof(kvp**)))) {
             destroyKeyValuePair(new_kvp);
-            fatalExit(FN, "Allocate failed for: hash_in->kvptrs (malloc)");
+            throwFatal(FN, "Allocate failed for: hash_in->kvptrs (malloc)");
         }
         hash_in->kvptrs[0] = new_kvp;
     } else {
-        kv** temp_kvps = NULL;
-        if(!(temp_kvps = realloc(hash_in->kvptrs, (hash_in->len + 1) * sizeof(kv**)))) {
+        kvp** temp_kvps = NULL;
+        if(!(temp_kvps = realloc(hash_in->kvptrs, (hash_in->len + 1) * sizeof(kvp**)))) {
             destroyKeyValuePair(new_kvp);
-            fatalExit(FN, "Allocate failed for: temp_kvps (realloc)");
+            throwFatal(FN, "Allocate failed for: temp_kvps (realloc)");
         }
         temp_kvps[hash_in->len] = new_kvp;
         hash_in->kvptrs = temp_kvps;
     }
     hash_in->len++;
 
-    setSuccess(FN);
+    SUCCESS(FN);
     return 0;
 }
 
@@ -163,53 +214,53 @@ moveKeyToHash(hsh* hash_in, const char* key_in, void* eating) {
     if( !hash_in ||
         !key_in ||
         !eating) {
-            setError(ARG_ERR, FN, "Input object(s) invalid (NULL)");
+            ERROR(ARG_ERR, FN, "Input object(s) invalid (NULL)");
             return 1;
     }
     for(size_t i = 0; i < hash_in->len; i++) {
         if(seqSame(key_in, hash_in->kvptrs[i]->key)) {
-            setWarning(FN, "key_in already exists in hash_in");
+            WARN(FN, "key_in already exists in hash_in");
             return 3;
         }
     }
 
-    kv* new_kvp = NULL;
-    if(!(new_kvp = malloc(sizeof(kv)))) {
-        setError(MEM_ERR, FN, "Allocate failed for: new_kvp (malloc)");
+    kvp* new_kvp = NULL;
+    if(!(new_kvp = malloc(sizeof(kvp)))) {
+        ERROR(MEM_ERR, FN, "Allocate failed for: new_kvp (malloc)");
         return 4;
     }
 
     size_t key_length = seqLen(key_in);
     if(key_length == 0) {
-        setError(ARG_ERR, FN, "Input argument invalid: key_in (key must contain at least 1 character)");
+        ERROR(ARG_ERR, FN, "Input argument invalid: key_in (key must contain at least 1 character)");
         free(new_kvp);
         return 5;
     }
     if(!(new_kvp->key = seqDupl(key_in))) {
-        setError(INIT_ERR, FN, "Initialization failed for: new_kvp->key (seqDupl)");
+        ERROR(INIT_ERR, FN, "Initialization failed for: new_kvp->key (seqDupl)");
         free(new_kvp);
         return 6;
     }
     new_kvp->value = eating;
 
     if(hash_in->len == 0) {
-        if(!(hash_in->kvptrs = malloc(sizeof(kv**)))) {
+        if(!(hash_in->kvptrs = malloc(sizeof(kvp**)))) {
             destroyKeyValuePair(new_kvp);
-            fatalExit(FN, "Allocate failed for: hash_in_cast->kvptrs (malloc)");
+            throwFatal(FN, "Allocate failed for: hash_in_cast->kvptrs (malloc)");
         }
         hash_in->kvptrs[0] = new_kvp;
     } else {
-        kv** temp_kvps = NULL;
-        if(!(temp_kvps = realloc(hash_in->kvptrs, (hash_in->len + 1) * sizeof(kv**)))) {
+        kvp** temp_kvps = NULL;
+        if(!(temp_kvps = realloc(hash_in->kvptrs, (hash_in->len + 1) * sizeof(kvp**)))) {
             destroyKeyValuePair(new_kvp);
-            fatalExit(FN, "Allocate failed for: temp_kvps (realloc)");
+            throwFatal(FN, "Allocate failed for: temp_kvps (realloc)");
         }
         temp_kvps[hash_in->len] = new_kvp;
         hash_in->kvptrs = temp_kvps;
     }
     hash_in->len++;
 
-    setSuccess(FN);
+    SUCCESS(FN);
     return 0;
 }
 
@@ -218,11 +269,11 @@ removeFromHash(hsh* hash_in, const char* key_delete) {
 
     if( hash_in == NULL||
         key_delete == NULL) {
-            setError(ARG_ERR, FN, "Input object(s) invalid (NULL)");
+            ERROR(ARG_ERR, FN, "Input object(s) invalid (NULL)");
             return 1;
     }
     if(hash_in->len == 0) {
-        setWarning(FN, "Length of hash_in is zero. Aborting lookup");
+        WARN(FN, "Length of hash_in is zero. Aborting lookup");
         return 2;
     }
 
@@ -235,7 +286,7 @@ removeFromHash(hsh* hash_in, const char* key_delete) {
         }
     }
     if(del_location == HSH_ERR) {
-        setWarning(FN, "Key key_delete not found in hash_in");
+        WARN(FN, "Key key_delete not found in hash_in");
         return 3;
     }
 
@@ -250,14 +301,14 @@ removeFromHash(hsh* hash_in, const char* key_delete) {
         }
     }
 
-    kv** temp_kvps = NULL;
-    if(!(temp_kvps = realloc(hash_in->kvptrs, (hash_in->len - 1) * sizeof(kv**)))) {
-        fatalExit(FN, "Allocate failed for: temp_kvps (realloc)");
+    kvp** temp_kvps = NULL;
+    if(!(temp_kvps = realloc(hash_in->kvptrs, (hash_in->len - 1) * sizeof(kvp**)))) {
+        throwFatal(FN, "Allocate failed for: temp_kvps (realloc)");
     }
     hash_in->kvptrs = temp_kvps;
     hash_in->len--;
 
-    setSuccess(FN);
+    SUCCESS(FN);
     return 0;
 }
 
@@ -265,13 +316,13 @@ int
 destroyHash(hsh* hash_in) {
 
     if(hash_in == NULL) {
-        setError(ARG_ERR, FN, "Input object invalid (NULL)");
+        ERROR(ARG_ERR, FN, "Input object invalid (NULL)");
         return 1;
     }
 
     if(hash_in->len == 0) { //if empty hash
         free(hash_in);
-        setSuccess(FN);
+        SUCCESS(FN);
         return 0;
     }
 
@@ -281,7 +332,7 @@ destroyHash(hsh* hash_in) {
     free(hash_in->kvptrs);
     free(hash_in);
 
-    setSuccess(FN);
+    SUCCESS(FN);
     return 0;
 }
 
@@ -289,24 +340,24 @@ hsh*
 duplicateHash(hsh* hash_in) {
 
     if(hash_in == NULL) {
-        setError(ARG_ERR, FN, "Input object invalid (NULL)");
+        ERROR(ARG_ERR, FN, "Input object invalid (NULL)");
         return NULL;
     }
 
     hsh* hash_out = NULL;
     if(!(hash_out = hashInit())) {
-        setError(INIT_ERR, FN, "Initialization failed for: hash_out (hashInit)");
+        ERROR(INIT_ERR, FN, "Initialization failed for: hash_out (hashInit)");
         return NULL;
     }
-    if(!(hash_out->kvptrs = malloc(hash_in->len * sizeof(kv**)))) {
+    if(!(hash_out->kvptrs = malloc(hash_in->len * sizeof(kvp**)))) {
         free(hash_out);
-        fatalExit(FN, "Allocate failed for: hash_out->kvptrs (malloc)");
+        throwFatal(FN, "Allocate failed for: hash_out->kvptrs (malloc)");
     }
 
     for(size_t i = 0; i < hash_in->len; i++) { //duplicate all pairs
         if(!(hash_out->kvptrs[i] = duplicateKeyValuePair(hash_in->kvptrs[i]))) {
             for(size_t j = 0; j < i; j++) {
-                setError(INIT_ERR, FN, "Initialization failed for hash_out->kvptrs[i] (duplicateKeyValuePair)");
+                ERROR(INIT_ERR, FN, "Initialization failed for hash_out->kvptrs[i] (duplicateKeyValuePair)");
                 destroyKeyValuePair(hash_out->kvptrs[i]);
             }
             destroyHash(hash_out);
@@ -315,7 +366,7 @@ duplicateHash(hsh* hash_in) {
     }
     hash_out->len = hash_in->len;
 
-    setSuccess(FN);
+    SUCCESS(FN);
     return hash_out;
 }
 

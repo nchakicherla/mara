@@ -16,10 +16,10 @@ doodleTests() {
     moveKeyToHash(hash1, "Age", itr1); // no need to call destroy on itr1
     addKeyToHash(hash1, "test", name);
     removeFromHash(hash1, "test");
-    printf("Value of \"Name\" key in hash1: %s\n", ((str*)accessHash(hash1, "Name"))->seq);
-    printf("Value of \"Age\" key in hash1: %ld\n", ((itr*)accessHash(hash1, "Age"))->val);
-    print(accessHash(hash1, "Name"));
-    print(accessHash(hash1, "Age"));
+    printf("Value of \"Name\" key in hash1: %s\n", ((str*)accessHashValue(hash1, "Name"))->seq);
+    printf("Value of \"Age\" key in hash1: %ld\n", ((itr*)accessHashValue(hash1, "Age"))->val);
+    print(accessHashValue(hash1, "Name"));
+    print(accessHashValue(hash1, "Age"));
     print(hash1);
     print(vec2);
     mat* mat1 = matrixInit(FLT_TYPE, 100, 100, "unit");
@@ -75,7 +75,7 @@ floatPrintTest() {
 
 int hashStressTest() {
     vec* vec1 = vectorInitV(0);
-    for(int i = 0; i < 10000; i++) {
+    for(int i = 0; i < 100; i++) {
         moveToVectorEnd(vec1, integerInit(i));
     }
     hsh* hash1 = hashInit();
@@ -85,15 +85,11 @@ int hashStressTest() {
     for(int i = 0; i < 100; i++) {
         sprintf(tmp_name + 3, "%d", i);
         temp_vec = duplicateVector(vec1);
-        printf("%d: ", i);
-        print(temp_vec);
         moveKeyToHash(hash1, tmp_name, temp_vec);
     }
     moveKeyToHash(hash1, "testseq", input("enter a string: ", STR_TYPE));
     print(hash1);
-    char* test = seqDupl(((str*)accessHash(hash1, "testseq"))->seq);
-    printf("testseq: %s\n", test);
-    free(test);
+    printf("testseq: %s\n", ((str*)accessHashValue(hash1, "testseq"))->seq);
     destroy(vec1);
     destroy(hash1);
     free(tmp_name);

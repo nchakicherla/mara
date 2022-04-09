@@ -35,11 +35,11 @@ destroy(void* obj_in) {
             break;
         }
         default: {
-            setWarning(FN, "Input object type invalid: not defined");
+            WARN(FN, "Input object type invalid: not defined");
         }
     }
 
-    setSuccess(FN);
+    SUCCESS(FN);
     return 0;
 }
 
@@ -91,7 +91,7 @@ duplicate(void* obj_in) {
         }
     }
 
-    setSuccess(FN);
+    SUCCESS(FN);
     return obj_out;
 }
 
@@ -169,7 +169,7 @@ printedLength(void* obj_in, size_t nested_level, bool oneline) {
             }
             output_count++; //include {
             for(size_t i = 0; i < ((hsh*)obj_in)->len; i++) {
-                kv* kvp_cast = (kv*) ((hsh*)obj_in)->kvptrs[i];
+                kvp* kvp_cast = (kvp*) ((hsh*)obj_in)->kvptrs[i];
                 if(!oneline) {
                     output_count += 3; //include leading newline and 2 leading spaces if default
                 } else {
@@ -178,7 +178,7 @@ printedLength(void* obj_in, size_t nested_level, bool oneline) {
                 if(nested_level > 0 && !oneline) { //add 2 additional spaces before key for each nest level
                     output_count += 2 * (nested_level);
                 }
-                output_count += seqLen(kvp_cast->key); //no need to include quotation space for kv->key
+                output_count += seqLen(kvp_cast->key); //no need to include quotation space for kvp->key
                 output_count += 4; //space, separator, space, comma
                 output_count += printedLength(kvp_cast->value, nested_level + 1, oneline);
             }
@@ -214,10 +214,11 @@ printedLength(void* obj_in, size_t nested_level, bool oneline) {
 char*
 objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
 
-    size_t output_seq_size = printedLength(obj_in, nested_level, oneline); // updates to printing should be reflected
-    char* output_seq = NULL; // dynamically allocated/ freed outside scope // in both printedLength and this fn
+    size_t output_seq_size = printedLength(obj_in, nested_level, oneline);  // updates to printing should be reflected
+                                                                            // in both printedLength and this fn
+    char* output_seq = NULL; // dynamically allocated and returned, freed outside scope 
     if(!(output_seq = calloc(output_seq_size + 1, sizeof(char)))) {
-        fatalExit(FN, "Allocate failed for: output_seq (calloc)");
+        throwFatal(FN, "Allocate failed for: output_seq (calloc)");
     }
     char* write_tracker = output_seq;
     char* nested_obj_seq = NULL; // dynamically allocated, freed within scope
@@ -227,7 +228,7 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
 
         case STR_TYPE: {
             if(!((str*)obj_in)->seq) {
-                setError(ARG_ERR, FN, "Input object invalid: ((str*)obj_in)->seq = NULL");
+                ERROR(ARG_ERR, FN, "Input object invalid: ((str*)obj_in)->seq = NULL");
                 free(output_seq);
                 return NULL;
             }
@@ -252,7 +253,8 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
             if( ((flt*)obj_in)->val < 0.001) { //handle small numbers
                 char* num_char_buf = NULL;
                 if(!(num_char_buf = calloc(NUM_CHAR_BUF_LEN, sizeof(char)))) {
-                    fatalExit(FN, "Allocate failed for: num_char_buf (calloc)");
+                    free(output_seq);
+                    throwFatal(FN, "Allocate failed for: num_char_buf (calloc)");
                 }
                 spr_ret = sprintf(num_char_buf, "%e", ((flt*)obj_in)->val); //
                 char* e_loc = seqChar(num_char_buf, 'e', NUM_CHAR_BUF_LEN);
@@ -280,13 +282,17 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
         }
 
         case HSH_TYPE: {
+
             if(((hsh*)obj_in)->len == 0) { //empty hash
                 sprintf(write_tracker, "%s", "{ EMPTY }");
                 break;
             }
+
             *write_tracker = '{';
             write_tracker++;
+
             for(size_t i = 0; i < ((hsh*)obj_in)->len; i++) {
+
                 if(!oneline) {
                     sprintf(write_tracker, "%s", "\n  ");
                     write_tracker += 3;
@@ -294,31 +300,37 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
                     sprintf(write_tracker, "%s", " ");
                     write_tracker++;
                 }
+
                 if(nested_level > 0 && !oneline) {
                     for(size_t i = 0; i < nested_level; i++) {
-                        sprintf(write_tracker, "%s", "  "); //add 2 additional spaces if nested in another DCT
+                        sprintf(write_tracker, "%s", "  "); //add 2 * nested_level additional spaces if nested in another DCT
                         write_tracker += 2;
                     }
                 }
-                spr_ret = sprintf(write_tracker, "%s", ((kv*)((hsh*)obj_in)->kvptrs[i])->key);
+
+                spr_ret = sprintf(write_tracker, "%s", ((hsh*)obj_in)->kvptrs[i]->key);
+
                 if(spr_ret > 0) {
                     write_tracker += spr_ret;
                 } else {
                     write_tracker++;
                 }
+
                 sprintf(write_tracker, "%s", " : ");
                 write_tracker += 3;
-                if((nested_obj_seq = objectAsChars(((kv*)((hsh*)obj_in)->kvptrs[i])->value, nested_level + 1, oneline))) {
+
+                if((nested_obj_seq = objectAsChars(((hsh*)obj_in)->kvptrs[i]->value, nested_level + 1, oneline))) {
                     spr_ret = sprintf(write_tracker, "%s", nested_obj_seq);
                     free(nested_obj_seq);                    
                 } else {
-                    setWarning(FN, "Failed to create seq from ((kv*)((hsh*)obj_in)->kvptrs[i])->value");
+                    WARN(FN, "Failed to create seq from ((kvp*)((hsh*)obj_in)->kvptrs[i])->value");
                     spr_ret = sprintf(write_tracker, "%s", "");
                 }
                 write_tracker += spr_ret;
                 *write_tracker = ',';
                 write_tracker++;
             }
+
             if(!oneline) {
                 if(nested_level > 0) { //maintain nested indentation if normal printing
                     write_tracker -= 1;
@@ -345,8 +357,10 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
         }
         
         case VEC_TYPE: {
+
             *write_tracker = '[';
             write_tracker++;
+
             for(size_t i = 0; i < ((vec*)obj_in)->len; i++) {
                 *write_tracker = ' '; //leading space
                 write_tracker++;
@@ -354,7 +368,7 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
                     spr_ret = sprintf(write_tracker, "%s", nested_obj_seq);
                     free(nested_obj_seq);
                 } else {
-                    setWarning(FN, "Failed to create seq from ((vec*)obj_in)->ptrs[i]");
+                    WARN(FN, "Failed to create seq from ((vec*)obj_in)->ptrs[i]");
                     spr_ret = sprintf(write_tracker, "%s", "");
                 }
                 write_tracker += spr_ret;

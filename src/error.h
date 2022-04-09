@@ -15,16 +15,16 @@ toArbitraryLong(char *str) {
 }
 
 FILE* objopslog = NULL;
-char current_success[256];
-char current_warning[256];
-char current_error[256];
+char current_success[1024];
+char current_warning[1024];
+char current_error[1024];
 size_t msg_counter = 1;
 
 int
 openLog() {
 
     if(objopslog != NULL) {
-        setError(ARG_ERR, FN, "Log file already opened");
+        ERROR(ARG_ERR, FN, "Log file already opened");
         return 1;
     }
 
@@ -70,7 +70,7 @@ closeLog() {
         fprintf(objopslog, "\nEND\n");
         fclose(objopslog);
     } else {
-        setError(ARG_ERR, FN, "Log file has not been opened");
+        ERROR(ARG_ERR, FN, "Log file has not been opened");
         return 1;
     }
 
@@ -78,7 +78,7 @@ closeLog() {
 }
 
 void
-fatalExit(const char* func, const char* desc) {
+throwFatal(const char* func, const char* desc) {
 
     if(objopslog) {
         fprintf(objopslog, "\nFATAL ERROR in %s - %s. Aborting...\n", func, desc);
@@ -92,17 +92,13 @@ setSuccess(const char* func) {
 
     sprintf(current_success, "%sSUCCESS%s in: %s%s%s\n", KGRN, KNRM, KYEL, func, KNRM);
 
-    if(SUCCESS) {
-        if(LOGGING) {
-            if(PRINTLOG) {
-                printf("%s", current_success);
-            }
-            if(objopslog) {
-                fprintf(objopslog, "%zu > SUCCESS in: %s\n", msg_counter, func);
-            }
-        }
-        msg_counter++;
+    if(PRINTLOG) {
+        printf("%s", current_success);
     }
+    if(objopslog) {
+        fprintf(objopslog, "%zu > SUCCESS in: %s\n", msg_counter, func);
+    }
+    msg_counter++;
 
     return 0;
 }
@@ -112,17 +108,13 @@ setWarning(const char* func, const char* desc) {
 
     sprintf(current_warning, "%sWARNING%s in %s%s%s - %s%s%s\n", KMAG, KNRM, KYEL, func, KNRM, KCYN, desc, KNRM);
 
-    if(WARNING) {
-        if(LOGGING) {
-            if(PRINTLOG) {
-                printf("%s", current_warning);
-            }
-            if(objopslog) {
-                fprintf(objopslog, "%zu > WARNING in %s - %s\n", msg_counter, func, desc);
-            }
-        }
-        msg_counter++;
+    if(PRINTLOG) {
+        printf("%s", current_warning);
     }
+    if(objopslog) {
+        fprintf(objopslog, "%zu > WARNING in %s - %s\n", msg_counter, func, desc);
+    }
+    msg_counter++;
 
     return 0;
 }
@@ -132,17 +124,13 @@ setError(char* errtype, const char* func, const char* desc) {
 
     sprintf(current_error, "%s%s%s in %s%s%s - %s%s%s\n", KRED, errtype, KNRM, KYEL, func, KNRM, KRED, desc, KNRM);
 
-    if(ERROR) {
-        if(LOGGING) {
-            if(PRINTLOG) {
-                printf("%s", current_error);
-            }
-            if(objopslog) {
-                fprintf(objopslog, "%zu > %s in %s - %s\n", msg_counter, errtype, func, desc);
-            }
-        }
-        msg_counter++;
+    if(PRINTLOG) {
+        printf("%s", current_error);
     }
+    if(objopslog) {
+        fprintf(objopslog, "%zu > %s in %s - %s\n", msg_counter, errtype, func, desc);
+    }
+    msg_counter++;
 
     return 0;
 }

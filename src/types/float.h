@@ -8,14 +8,14 @@ floatInit(double val_in, int prec_in) {
 
     flt* flt_out = malloc(sizeof(flt));
     if(flt_out == NULL) {
-        fatalExit(FN, "Allocate failed for: flt_out (malloc)");
+        throwFatal(FN, "Allocate failed for: flt_out (malloc)");
     }
 
     flt_out->type = FLT_TYPE;
     flt_out->fracdigs = prec_in;
     flt_out->val = val_in;
 
-    setSuccess(FN);
+    SUCCESS(FN);
     return flt_out;
 }
 
@@ -23,12 +23,12 @@ int
 destroyFloat(flt* flt_in) {
 
     if(flt_in == NULL) {
-        setError(ARG_ERR, FN, "Input object invalid (NULL)");
+        ERROR(ARG_ERR, FN, "Input object invalid (NULL)");
         return 1;
     }
 
     free(flt_in);
-    setSuccess(FN);
+    SUCCESS(FN);
     return 0;
 }
 
@@ -36,19 +36,19 @@ flt*
 duplicateFloat(flt* flt_in) {
 
     if(flt_in == NULL) {
-        setError(ARG_ERR, FN, "Input object invalid (NULL)");
+        ERROR(ARG_ERR, FN, "Input object invalid (NULL)");
         return NULL;
     }
 
     flt* flt_out = floatInit(flt_in->val, flt_in->fracdigs);
     if(flt_out == NULL) {
-        setError(INIT_ERR, FN, "Initialization failed for: flt_out (floatInit)");
+        ERROR(INIT_ERR, FN, "Initialization failed for: flt_out (floatInit)");
         return NULL;
     }
 
     flt_out->fracdigs = flt_in->fracdigs;
     
-    setSuccess(FN);
+    SUCCESS(FN);
     return flt_out;
 }
 
