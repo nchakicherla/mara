@@ -30,29 +30,31 @@
 //  DEBUG OPTIONS
 
 #ifdef LOGGING
-# define LOGGING           1
-
+# define LOGGING            1
 #else
-# define LOGGING           0
+# define LOGGING            0
+#endif
+
+#ifdef PRINTLOG
+# define PRINTLOG           1
+#else
+# define PRINTLOG           0
 #endif
 
 #ifdef WARNING
-# define WARNING           1
-
+# define WARNING            1
 #else
-# define WARNING           0
+# define WARNING            0
 #endif
 
 #ifdef ERROR
 # define ERROR              1
-
 #else
 # define ERROR              0
 #endif
 
 #ifdef SUCCESS
 # define SUCCESS            1
-
 #else
 # define SUCCESS            0
 #endif
@@ -62,6 +64,7 @@
 
 #define ARG_ERR             "ARG_ERR"
 #define ACC_ERR             "ACC_ERR"
+#define INIT_ERR            "INIT_ERR"
 #define MEM_ERR             "MEM_ERR"
 
 #define FN                  __func__
@@ -167,6 +170,9 @@ logMessage(int n, ...);
 int
 closeLog();
 
+void
+fatalExit(const char* func, const char* desc);
+
 int
 setSuccess(const char* func);
 
@@ -201,7 +207,7 @@ int
 setString(str* str_in, const char* seq_in);
 
 str*
-newString(const char* seq_in);
+stringInit(const char* seq_in);
 
 int
 destroyString(str* str_in);
@@ -227,7 +233,7 @@ sliceFromString(str* input_str, size_t start, size_t end);
 // ITR
 
 itr*
-newInteger(long val);
+integerInit(long val);
 
 int
 destroyInteger(itr* itr_in);
@@ -238,7 +244,7 @@ duplicateInteger(itr* itr_in);
 // FLT
 
 flt*
-newFloat(double val_in, int prec_in);
+floatInit(double val_in, int prec_in);
 
 int
 destroyFloat(flt* flt_in);
@@ -255,7 +261,7 @@ kv*
 duplicateKeyValuePair(kv* kvp_in);
 
 hsh*
-newEmptyHash();
+hashInit();
 
 void*
 accessHash(hsh* hash_in, const char* key_in);
@@ -316,7 +322,7 @@ duplicateVector(vec* vec_in);
 // MAT
 
 mat*
-newMatrix(int data_type_in, size_t rows, size_t columns, const char* options);
+matrixInit(int data_type_in, size_t rows, size_t columns, const char* options);
 
 int
 destroyMatrix(mat* mat_in);
@@ -326,19 +332,14 @@ duplicateMatrix(mat* mat_in);
 
 // GENERIC
 
-/*
 int
-TYPE_OF(void* obj_in);
-*/
+destroy(void* obj_in);
 
 int
-destroyObject(void* obj_in);
-
-int
-destroyObjectsV(uint32_t n, ...);
+destroyV(uint32_t n, ...);
 
 void*
-duplicateObject(void* obj_in);
+duplicate(void* obj_in);
 
 size_t
 printedLength(void* obj_in, size_t nested_level, bool oneline);

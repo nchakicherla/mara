@@ -4,7 +4,7 @@
 #include "../common.h"
 
 mat*
-newMatrix(int data_type_in, size_t rows, size_t columns, const char* options) {
+matrixInit(int data_type_in, size_t rows, size_t columns, const char* options) {
 
 	if(	data_type_in == 0 ||
 		rows == 0 ||
@@ -27,8 +27,7 @@ newMatrix(int data_type_in, size_t rows, size_t columns, const char* options) {
 
 	mat* output_mat = NULL;
 	if(!(output_mat = malloc(sizeof(mat)))) {
-		setError(MEM_ERR, FN, "Allocate failed for: output_mat (malloc)");
-		return NULL;
+		fatalExit(FN, "Allocate failed for: output_mat (malloc)");
 	}
 	output_mat->type = MAT_TYPE;
 	output_mat->datatype = data_type_in;
@@ -39,9 +38,8 @@ newMatrix(int data_type_in, size_t rows, size_t columns, const char* options) {
 
 		case ITR_TYPE: {
 			if(!(output_mat->data = calloc(rows * columns, sizeof(int32_t)))) {
-				setError(MEM_ERR, FN, "Allocate failed for: output_mat->data (malloc)");
 				free(output_mat);
-				return NULL;
+				fatalExit(FN, "Allocate failed for: output_mat->data (malloc)");
 			}
 			if(seqSame(options, "unit")) {
 				for(size_t i = 0; i < rows * columns; i++) {
@@ -53,9 +51,8 @@ newMatrix(int data_type_in, size_t rows, size_t columns, const char* options) {
 
 		case FLT_TYPE: {
 			if(!(output_mat->data = calloc(rows * columns, sizeof(double)))) {
-				setError(MEM_ERR, FN, "Allocate failed for: output_mat->data (malloc)");
 				free(output_mat);
-				return NULL;
+				fatalExit(FN, "Allocate failed for: output_mat->data (malloc)");
 			}
 			if(seqSame(options, "unit")) {
 				for(size_t i = 0; i < rows * columns; i++) {
@@ -65,7 +62,7 @@ newMatrix(int data_type_in, size_t rows, size_t columns, const char* options) {
 			break;
 		}
 		default: {
-			setError(ARG_ERR, FN, "Argument invalid: data_type_in (newMatrix expects ITR_TYPE or FLT_TYPE)");
+			setError(ARG_ERR, FN, "Argument invalid: data_type_in (matrixInit expects ITR_TYPE or FLT_TYPE)");
 			free(output_mat);
 			return NULL;
 		}
@@ -104,8 +101,8 @@ duplicateMatrix(mat* mat_in) {
 	}
 
 	mat* mat_out = NULL;
-	if(!(mat_out = newMatrix(mat_in->datatype, mat_in->m, mat_in->n, NULL))) {
-		setError(MEM_ERR, FN, "Allocate failed for: mat_out (malloc)");
+	if(!(mat_out = matrixInit(mat_in->datatype, mat_in->m, mat_in->n, NULL))) {
+		setError(INIT_ERR, FN, "Allocate failed for: mat_out (matrixInit)");
 		return NULL;
 	}
 

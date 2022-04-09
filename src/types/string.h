@@ -40,8 +40,7 @@ seqDupl(const char* seq_in) {
     char* seq_out = NULL;
 
     if(!(seq_out = malloc(seq_in_len + 1))) {
-        setError(MEM_ERR, FN, "Allocate failed for: seq_out (malloc)");
-        return NULL;
+        fatalExit(FN, "Allocate failed for: seq_out (malloc)");
     }
     for(size_t i = 0; i < seq_in_len; i++) {
         seq_out[i] = seq_in[i];
@@ -62,7 +61,7 @@ seqToInteger(char* seq_in) {
 
     for(size_t i = 0; i < seqLen(seq_in); i++) {
         if(!isdigit(seq_in[i])) {
-            setError(ARG_ERR, FN, "Input contains a non-number");
+            setError(ARG_ERR, FN, "Input contains a non-numeric character");
             return NULL;
         }
     }
@@ -76,8 +75,8 @@ seqToInteger(char* seq_in) {
     }
 
     void* itr_out = NULL;
-    if(!(itr_out = newInteger(val))) {
-        setError(MEM_ERR, FN, "Allocate failed for: itr_out (newInteger)");
+    if(!(itr_out = integerInit(val))) {
+        setError(INIT_ERR, FN, "Initialization failed for: itr_out (integerInit)");
         return NULL;
     }
 
@@ -150,8 +149,8 @@ seqToFloat(char* seq_in) {
     }
 
     flt* flt_out = NULL;
-    if(!(flt_out = newFloat(val, fracdigs))) {
-        setError(MEM_ERR, FN, "Allocate failed for: flt_out (newFloat)");
+    if(!(flt_out = floatInit(val, fracdigs))) {
+        setError(INIT_ERR, FN, "Initialization failed for: flt_out (floatInit)");
         return NULL;
     }
 
@@ -196,8 +195,7 @@ setString(str* str_in, const char* seq_in) {
     }
 
     if(!(str_in->seq = malloc(seqLen(seq_in) + 1))) {
-        setError(MEM_ERR, FN, "Allocate failed for: str_in->seq (malloc)");
-        return 3;
+        fatalExit(FN, "Allocate failed for: str_in->seq (malloc)");
     }
 
     for(size_t i = 0; i <= seqLen(seq_in); i++) {
@@ -209,7 +207,7 @@ setString(str* str_in, const char* seq_in) {
 }
 
 str*
-newString(const char* seq_in) {
+stringInit(const char* seq_in) {
 
     if(seq_in == NULL) {
         setError(ARG_ERR, FN, "Input sequence invalid (NULL)");
@@ -222,14 +220,12 @@ newString(const char* seq_in) {
 
     str* output_str = NULL;
     if(!(output_str = malloc(sizeof(str)))) {
-        setError(MEM_ERR, FN, "Allocate failed for: output_str (malloc)");
-        return NULL;
+        fatalExit(FN, "Allocate failed for: output_str (malloc)");
     }
 
     if(!(output_str->seq = malloc(seqLen(seq_in) + 1))) {
-        setError(MEM_ERR, FN, "Allocate failed for: output_str->seq (malloc)");
         free(output_str);
-        return NULL;
+        fatalExit(FN, "Allocate failed for: output_str->seq (malloc)");
     }
     output_str->type = STR_TYPE;
     output_str->len = seqLen(seq_in);
@@ -280,8 +276,7 @@ growString(str* str_in, size_t new_len) {
 
     char *new_seq = NULL;
     if(!(new_seq = realloc(str_in->seq, new_len + 1))) {
-        setError(MEM_ERR, FN, "Allocate failed for: new_seq (realloc)");
-        return 4;
+        fatalExit(FN, "Allocate failed for: new_seq (realloc)");
     }
     str_in->len = new_len;
     str_in->seq = new_seq;
@@ -315,7 +310,7 @@ addString(str* target, str* adding) {
     size_t target_old_len = target->len;
 
     if( 0 != growString(target, target->len + adding->len) ) {
-        setError(MEM_ERR, FN, "Allocate failed for: target (growString)");
+        setError(INIT_ERR, FN, "Initialization failed for: target (growString)");
         return 5;
     }
 
@@ -358,7 +353,7 @@ insertString(str* target, str* adding, size_t pos) {
     size_t target_old_len = target->len;
 
     if(!(growString(target, target->len + adding->len))) {
-        setError(MEM_ERR, FN, "Allocate failed for: target (growString)");
+        setError(INIT_ERR, FN, "Initialization failed for: target (growString)");
         return 5;
     }
     for(size_t i = pos; i < target_old_len; i++) {
@@ -415,8 +410,8 @@ duplicateString(str* input_str) {
     }
 
     void* output_str = NULL;
-    if(!(output_str = newString(input_str->seq))) {
-        setError(MEM_ERR, FN, "Allocate failed for: output_str (newString)");
+    if(!(output_str = stringInit(input_str->seq))) {
+        setError(INIT_ERR, FN, "Initialization failed for: output_str (stringInit)");
     }
 
     setSuccess(FN);
@@ -431,13 +426,13 @@ sliceFromString(str* input_str, size_t start, size_t end) {
         return NULL;
     }
     if(start >= input_str->len || end >= input_str->len) {
-        setError(ACC_ERR, FN, "Argument(s) invalid: start, end exceed bounds of input_str");
+        setError(ARG_ERR, FN, "Argument(s) invalid: start, end exceed bounds of input_str");
         return NULL;
     }
 
     str* output_str = NULL;
-    if(!(output_str = newString(""))) {
-        setError(MEM_ERR, FN, "Allocate failed for: output_str (newString)");
+    if(!(output_str = stringInit(""))) {
+        setError(INIT_ERR, FN, "Initialization failed for: output_str (stringInit)");
         return NULL;
     }
 
@@ -445,7 +440,7 @@ sliceFromString(str* input_str, size_t start, size_t end) {
 
     if (start < end) {
         if(growString(output_str, end - start + 1)) {
-            setError(MEM_ERR, FN, "Allocate failed for: output_str (growString)");
+            setError(INIT_ERR, FN, "Initialization failed for: output_str (growString)");
             return NULL;
         }
         for(size_t i = start; i <= end; i++) {
@@ -455,7 +450,7 @@ sliceFromString(str* input_str, size_t start, size_t end) {
         output_str->len = end - start + 1;
     } else if (start > end) {
         if(growString(output_str, start - end + 1)) {
-            setError(MEM_ERR, FN, "Allocate failed for: output_str (growString)");
+            setError(INIT_ERR, FN, "Initialization failed for: output_str (growString)");
             return NULL;
         }
         for(size_t i = start; i > end; --i) {
@@ -466,7 +461,7 @@ sliceFromString(str* input_str, size_t start, size_t end) {
         output_str->len = start - end + 1;
     } else {
         if(growString(output_str, 1)) {
-            setError(MEM_ERR, FN, "Allocate failed for: output_str (growString)");
+            setError(INIT_ERR, FN, "Initialization failed for: output_str (growString)");
             return NULL;
         }
         output_str->seq[0] = input_str->seq[start];

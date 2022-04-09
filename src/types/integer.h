@@ -4,11 +4,11 @@
 #include "../common.h"
 
 itr*
-newInteger(long val) {
+integerInit(long val) {
 
     itr* itr_out = NULL;
     if(!(itr_out = malloc(sizeof(itr)))) {
-        setError(MEM_ERR, FN, "Allocate failed for: itr_out (malloc)");
+        fatalExit(FN, "Allocate failed for: itr_out (malloc)");
         return NULL;
     }
     itr_out->type = ITR_TYPE;
@@ -20,6 +20,7 @@ newInteger(long val) {
 
 int
 destroyInteger(itr* itr_in) {
+
     if(itr_in == NULL) {
         setError(ARG_ERR, FN, "Input object type invalid (destroyInteger expects ITR_TYPE)");
         return 1;
@@ -39,8 +40,8 @@ duplicateInteger(itr* itr_in) {
     }
 
     itr* itr_out = NULL;
-    if(!(itr_out = newInteger(itr_in->val))) {
-        setError(MEM_ERR, FN, "Allocate failed for: itr_out (newInteger)");
+    if(!(itr_out = integerInit(itr_in->val))) {
+        setError(INIT_ERR, FN, "Initialization failed for: itr_out (integerInit)");
         return NULL;
     }
 

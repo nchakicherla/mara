@@ -6,7 +6,7 @@
 #define NUM_CHAR_BUF_LEN 128
 
 int
-destroyObject(void* obj_in) {
+destroy(void* obj_in) {
 
     switch(TYPE_OF(obj_in)) {
 
@@ -44,7 +44,7 @@ destroyObject(void* obj_in) {
 }
 
 int
-destroyObjectsV(uint32_t n, ...) {
+destroyV(uint32_t n, ...) {
 
     va_list obj_args;
     va_start(obj_args, n);
@@ -52,14 +52,14 @@ destroyObjectsV(uint32_t n, ...) {
 
     for(uint32_t i = 0; i < n; i++) {
         current_obj = va_arg(obj_args, void *);
-        destroyObject(current_obj);
+        destroy(current_obj);
     }
 
     return 0;
 }
 
 void*
-duplicateObject(void* obj_in) {
+duplicate(void* obj_in) {
 
     void* obj_out = NULL;
 
@@ -217,8 +217,7 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
     size_t output_seq_size = printedLength(obj_in, nested_level, oneline); // updates to printing should be reflected
     char* output_seq = NULL; // dynamically allocated/ freed outside scope // in both printedLength and this fn
     if(!(output_seq = calloc(output_seq_size + 1, sizeof(char)))) {
-        setError(MEM_ERR, FN, "Allocate failed for: output_seq (malloc)");
-        return NULL;
+        fatalExit(FN, "Allocate failed for: output_seq (calloc)");
     }
     char* write_tracker = output_seq;
     char* nested_obj_seq = NULL; // dynamically allocated, freed within scope
@@ -241,7 +240,6 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
                 }                
             } 
             *write_tracker = '\"';
-            //*(write_tracker + 1) = '\0';
             break;
         }
         case ITR_TYPE: {
@@ -254,8 +252,7 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
             if( ((flt*)obj_in)->val < 0.001) { //handle small numbers
                 char* num_char_buf = NULL;
                 if(!(num_char_buf = calloc(NUM_CHAR_BUF_LEN, sizeof(char)))) {
-                    setError(MEM_ERR, FN, "Allocate failed for: num_char_buf (calloc)");
-                    break;
+                    fatalExit(FN, "Allocate failed for: num_char_buf (calloc)");
                 }
                 spr_ret = sprintf(num_char_buf, "%e", ((flt*)obj_in)->val); //
                 char* e_loc = seqChar(num_char_buf, 'e', NUM_CHAR_BUF_LEN);
@@ -333,11 +330,9 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
                         write_tracker += 2;
                     }
                     *write_tracker = '}';
-                    //*(write_tracker + 1) = '\0';
                 } else {
                     *(write_tracker - 1) = '\n';
                     *write_tracker = '}';
-                    //*(write_tracker + 1) = '\0';
                 }
             } else { //don't indent or add newlines if oneline
                 if(*(write_tracker - 1) != '{') {
@@ -345,7 +340,6 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
                 }
                 *write_tracker = ' ';
                 *(write_tracker + 1) = '}';
-                //*(write_tracker + 2) = '\0'; 
             }
             break;
         }
@@ -370,7 +364,6 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
             }
             *(write_tracker - 1) = ' '; //overwrite last comma
             *write_tracker = ']';
-            //*(write_tracker + 1) = '\0';
             break;
         }
     }

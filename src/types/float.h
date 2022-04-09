@@ -4,12 +4,11 @@
 #include "../common.h"
 
 flt*
-newFloat(double val_in, int prec_in) {
+floatInit(double val_in, int prec_in) {
 
     flt* flt_out = malloc(sizeof(flt));
     if(flt_out == NULL) {
-        setError(MEM_ERR, FN, "Allocate failed for: flt_out (malloc)");
-        return NULL;
+        fatalExit(FN, "Allocate failed for: flt_out (malloc)");
     }
 
     flt_out->type = FLT_TYPE;
@@ -41,9 +40,9 @@ duplicateFloat(flt* flt_in) {
         return NULL;
     }
 
-    flt* flt_out = newFloat(flt_in->val, flt_in->fracdigs);
+    flt* flt_out = floatInit(flt_in->val, flt_in->fracdigs);
     if(flt_out == NULL) {
-        setError(MEM_ERR, FN, "Allocate failed for: flt_out (newFloat)");
+        setError(INIT_ERR, FN, "Initialization failed for: flt_out (floatInit)");
         return NULL;
     }
 
