@@ -206,7 +206,8 @@ printedLength(void* obj_in, size_t nested_level, bool oneline) {
         }
 
         default: {
-            ERROR(ARG_ERR, FN, "Input object type invalid (unrecognized)");
+            WARN(FN , "Input object type unrecognized. Assuming char*");
+            output_count += seqLen((char*)obj_in);
         }
     }
     if(num_char_buf) {
@@ -390,7 +391,14 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
         }
 
         default: {
-            ERROR(ARG_ERR, FN, "Input object type invalid (unrecognized)");
+            WARN(FN, "Input object type unrecognized. Assuming char*");
+            char* temp_seq = seqDupl((char*)obj_in);
+            if(temp_seq == NULL) {
+                throwFatal(FN, "Initialization failed for temp_seq (seqDupl)");
+            } else {
+                free(output_seq);
+                output_seq = temp_seq;
+            }
         }
     }
     output_seq[output_seq_size] = '\0'; // for security, should already be reserved for \0

@@ -1,0 +1,4429 @@
+# 1 "./src/mara.c"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 31 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 32 "<command-line>" 2
+# 1 "./src/mara.c"
+# 1 "./src/mara.h" 1
+
+
+
+# 1 "./src/common.h" 1
+
+
+
+# 1 "/usr/include/stdio.h" 1 3 4
+# 27 "/usr/include/stdio.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
+# 33 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 3 4
+# 1 "/usr/include/features.h" 1 3 4
+# 461 "/usr/include/features.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 1 3 4
+# 452 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 453 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/long-double.h" 1 3 4
+# 454 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 462 "/usr/include/features.h" 2 3 4
+# 485 "/usr/include/features.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs-64.h" 1 3 4
+# 11 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 2 3 4
+# 486 "/usr/include/features.h" 2 3 4
+# 34 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 2 3 4
+# 28 "/usr/include/stdio.h" 2 3 4
+
+
+
+
+
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h" 1 3 4
+# 209 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h" 3 4
+
+# 209 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h" 3 4
+typedef long unsigned int size_t;
+# 34 "/usr/include/stdio.h" 2 3 4
+
+
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h" 1 3 4
+# 40 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h" 3 4
+typedef __builtin_va_list __gnuc_va_list;
+# 37 "/usr/include/stdio.h" 2 3 4
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/types.h" 1 3 4
+# 27 "/usr/include/x86_64-linux-gnu/bits/types.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/timesize.h" 1 3 4
+# 29 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+
+
+typedef unsigned char __u_char;
+typedef unsigned short int __u_short;
+typedef unsigned int __u_int;
+typedef unsigned long int __u_long;
+
+
+typedef signed char __int8_t;
+typedef unsigned char __uint8_t;
+typedef signed short int __int16_t;
+typedef unsigned short int __uint16_t;
+typedef signed int __int32_t;
+typedef unsigned int __uint32_t;
+
+typedef signed long int __int64_t;
+typedef unsigned long int __uint64_t;
+
+
+
+
+
+
+typedef __int8_t __int_least8_t;
+typedef __uint8_t __uint_least8_t;
+typedef __int16_t __int_least16_t;
+typedef __uint16_t __uint_least16_t;
+typedef __int32_t __int_least32_t;
+typedef __uint32_t __uint_least32_t;
+typedef __int64_t __int_least64_t;
+typedef __uint64_t __uint_least64_t;
+
+
+
+typedef long int __quad_t;
+typedef unsigned long int __u_quad_t;
+
+
+
+
+
+
+
+typedef long int __intmax_t;
+typedef unsigned long int __uintmax_t;
+# 141 "/usr/include/x86_64-linux-gnu/bits/types.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/typesizes.h" 1 3 4
+# 142 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/time64.h" 1 3 4
+# 143 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+
+
+typedef unsigned long int __dev_t;
+typedef unsigned int __uid_t;
+typedef unsigned int __gid_t;
+typedef unsigned long int __ino_t;
+typedef unsigned long int __ino64_t;
+typedef unsigned int __mode_t;
+typedef unsigned long int __nlink_t;
+typedef long int __off_t;
+typedef long int __off64_t;
+typedef int __pid_t;
+typedef struct { int __val[2]; } __fsid_t;
+typedef long int __clock_t;
+typedef unsigned long int __rlim_t;
+typedef unsigned long int __rlim64_t;
+typedef unsigned int __id_t;
+typedef long int __time_t;
+typedef unsigned int __useconds_t;
+typedef long int __suseconds_t;
+
+typedef int __daddr_t;
+typedef int __key_t;
+
+
+typedef int __clockid_t;
+
+
+typedef void * __timer_t;
+
+
+typedef long int __blksize_t;
+
+
+
+
+typedef long int __blkcnt_t;
+typedef long int __blkcnt64_t;
+
+
+typedef unsigned long int __fsblkcnt_t;
+typedef unsigned long int __fsblkcnt64_t;
+
+
+typedef unsigned long int __fsfilcnt_t;
+typedef unsigned long int __fsfilcnt64_t;
+
+
+typedef long int __fsword_t;
+
+typedef long int __ssize_t;
+
+
+typedef long int __syscall_slong_t;
+
+typedef unsigned long int __syscall_ulong_t;
+
+
+
+typedef __off64_t __loff_t;
+typedef char *__caddr_t;
+
+
+typedef long int __intptr_t;
+
+
+typedef unsigned int __socklen_t;
+
+
+
+
+typedef int __sig_atomic_t;
+# 39 "/usr/include/stdio.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h" 1 3 4
+
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h" 1 3 4
+# 13 "/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h" 3 4
+typedef struct
+{
+  int __count;
+  union
+  {
+    unsigned int __wch;
+    char __wchb[4];
+  } __value;
+} __mbstate_t;
+# 6 "/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h" 2 3 4
+
+
+
+
+typedef struct _G_fpos_t
+{
+  __off_t __pos;
+  __mbstate_t __state;
+} __fpos_t;
+# 40 "/usr/include/stdio.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h" 1 3 4
+# 10 "/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h" 3 4
+typedef struct _G_fpos64_t
+{
+  __off64_t __pos;
+  __mbstate_t __state;
+} __fpos64_t;
+# 41 "/usr/include/stdio.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/types/__FILE.h" 1 3 4
+
+
+
+struct _IO_FILE;
+typedef struct _IO_FILE __FILE;
+# 42 "/usr/include/stdio.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/types/FILE.h" 1 3 4
+
+
+
+struct _IO_FILE;
+
+
+typedef struct _IO_FILE FILE;
+# 43 "/usr/include/stdio.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h" 1 3 4
+# 35 "/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h" 3 4
+struct _IO_FILE;
+struct _IO_marker;
+struct _IO_codecvt;
+struct _IO_wide_data;
+
+
+
+
+typedef void _IO_lock_t;
+
+
+
+
+
+struct _IO_FILE
+{
+  int _flags;
+
+
+  char *_IO_read_ptr;
+  char *_IO_read_end;
+  char *_IO_read_base;
+  char *_IO_write_base;
+  char *_IO_write_ptr;
+  char *_IO_write_end;
+  char *_IO_buf_base;
+  char *_IO_buf_end;
+
+
+  char *_IO_save_base;
+  char *_IO_backup_base;
+  char *_IO_save_end;
+
+  struct _IO_marker *_markers;
+
+  struct _IO_FILE *_chain;
+
+  int _fileno;
+  int _flags2;
+  __off_t _old_offset;
+
+
+  unsigned short _cur_column;
+  signed char _vtable_offset;
+  char _shortbuf[1];
+
+  _IO_lock_t *_lock;
+
+
+
+
+
+
+
+  __off64_t _offset;
+
+  struct _IO_codecvt *_codecvt;
+  struct _IO_wide_data *_wide_data;
+  struct _IO_FILE *_freeres_list;
+  void *_freeres_buf;
+  size_t __pad5;
+  int _mode;
+
+  char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
+};
+# 44 "/usr/include/stdio.h" 2 3 4
+# 84 "/usr/include/stdio.h" 3 4
+typedef __fpos_t fpos_t;
+# 133 "/usr/include/stdio.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/stdio_lim.h" 1 3 4
+# 134 "/usr/include/stdio.h" 2 3 4
+
+
+
+extern FILE *stdin;
+extern FILE *stdout;
+extern FILE *stderr;
+
+
+
+
+
+
+extern int remove (const char *__filename) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int rename (const char *__old, const char *__new) __attribute__ ((__nothrow__ , __leaf__));
+# 173 "/usr/include/stdio.h" 3 4
+extern FILE *tmpfile (void) ;
+# 187 "/usr/include/stdio.h" 3 4
+extern char *tmpnam (char *__s) __attribute__ ((__nothrow__ , __leaf__)) ;
+# 213 "/usr/include/stdio.h" 3 4
+extern int fclose (FILE *__stream);
+
+
+
+
+extern int fflush (FILE *__stream);
+# 246 "/usr/include/stdio.h" 3 4
+extern FILE *fopen (const char *__restrict __filename,
+      const char *__restrict __modes) ;
+
+
+
+
+extern FILE *freopen (const char *__restrict __filename,
+        const char *__restrict __modes,
+        FILE *__restrict __stream) ;
+# 304 "/usr/include/stdio.h" 3 4
+extern void setbuf (FILE *__restrict __stream, char *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern int setvbuf (FILE *__restrict __stream, char *__restrict __buf,
+      int __modes, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+# 326 "/usr/include/stdio.h" 3 4
+extern int fprintf (FILE *__restrict __stream,
+      const char *__restrict __format, ...);
+
+
+
+
+extern int printf (const char *__restrict __format, ...);
+
+extern int sprintf (char *__restrict __s,
+      const char *__restrict __format, ...) __attribute__ ((__nothrow__));
+
+
+
+
+
+extern int vfprintf (FILE *__restrict __s, const char *__restrict __format,
+       __gnuc_va_list __arg);
+
+
+
+
+extern int vprintf (const char *__restrict __format, __gnuc_va_list __arg);
+
+extern int vsprintf (char *__restrict __s, const char *__restrict __format,
+       __gnuc_va_list __arg) __attribute__ ((__nothrow__));
+
+
+
+extern int snprintf (char *__restrict __s, size_t __maxlen,
+       const char *__restrict __format, ...)
+     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+extern int vsnprintf (char *__restrict __s, size_t __maxlen,
+        const char *__restrict __format, __gnuc_va_list __arg)
+     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 0)));
+# 391 "/usr/include/stdio.h" 3 4
+extern int fscanf (FILE *__restrict __stream,
+     const char *__restrict __format, ...) ;
+
+
+
+
+extern int scanf (const char *__restrict __format, ...) ;
+
+extern int sscanf (const char *__restrict __s,
+     const char *__restrict __format, ...) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+
+extern int fscanf (FILE *__restrict __stream, const char *__restrict __format, ...) __asm__ ("" "__isoc99_fscanf")
+
+                               ;
+extern int scanf (const char *__restrict __format, ...) __asm__ ("" "__isoc99_scanf")
+                              ;
+extern int sscanf (const char *__restrict __s, const char *__restrict __format, ...) __asm__ ("" "__isoc99_sscanf") __attribute__ ((__nothrow__ , __leaf__))
+
+                      ;
+# 432 "/usr/include/stdio.h" 3 4
+extern int vfscanf (FILE *__restrict __s, const char *__restrict __format,
+      __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__scanf__, 2, 0))) ;
+
+
+
+
+
+extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__scanf__, 1, 0))) ;
+
+
+extern int vsscanf (const char *__restrict __s,
+      const char *__restrict __format, __gnuc_va_list __arg)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__format__ (__scanf__, 2, 0)));
+
+
+
+
+extern int vfscanf (FILE *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vfscanf")
+
+
+
+     __attribute__ ((__format__ (__scanf__, 2, 0))) ;
+extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vscanf")
+
+     __attribute__ ((__format__ (__scanf__, 1, 0))) ;
+extern int vsscanf (const char *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vsscanf") __attribute__ ((__nothrow__ , __leaf__))
+
+
+
+     __attribute__ ((__format__ (__scanf__, 2, 0)));
+# 485 "/usr/include/stdio.h" 3 4
+extern int fgetc (FILE *__stream);
+extern int getc (FILE *__stream);
+
+
+
+
+
+extern int getchar (void);
+# 521 "/usr/include/stdio.h" 3 4
+extern int fputc (int __c, FILE *__stream);
+extern int putc (int __c, FILE *__stream);
+
+
+
+
+
+extern int putchar (int __c);
+# 564 "/usr/include/stdio.h" 3 4
+extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
+     ;
+# 577 "/usr/include/stdio.h" 3 4
+extern char *gets (char *__s) __attribute__ ((__deprecated__));
+# 626 "/usr/include/stdio.h" 3 4
+extern int fputs (const char *__restrict __s, FILE *__restrict __stream);
+
+
+
+
+
+extern int puts (const char *__s);
+
+
+
+
+
+
+extern int ungetc (int __c, FILE *__stream);
+
+
+
+
+
+
+extern size_t fread (void *__restrict __ptr, size_t __size,
+       size_t __n, FILE *__restrict __stream) ;
+
+
+
+
+extern size_t fwrite (const void *__restrict __ptr, size_t __size,
+        size_t __n, FILE *__restrict __s);
+# 684 "/usr/include/stdio.h" 3 4
+extern int fseek (FILE *__stream, long int __off, int __whence);
+
+
+
+
+extern long int ftell (FILE *__stream) ;
+
+
+
+
+extern void rewind (FILE *__stream);
+# 731 "/usr/include/stdio.h" 3 4
+extern int fgetpos (FILE *__restrict __stream, fpos_t *__restrict __pos);
+
+
+
+
+extern int fsetpos (FILE *__stream, const fpos_t *__pos);
+# 757 "/usr/include/stdio.h" 3 4
+extern void clearerr (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int feof (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+extern int ferror (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+# 775 "/usr/include/stdio.h" 3 4
+extern void perror (const char *__s);
+
+
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/sys_errlist.h" 1 3 4
+# 782 "/usr/include/stdio.h" 2 3 4
+# 858 "/usr/include/stdio.h" 3 4
+extern int __uflow (FILE *);
+extern int __overflow (FILE *, int);
+# 873 "/usr/include/stdio.h" 3 4
+
+# 5 "./src/common.h" 2
+# 1 "/usr/include/stdlib.h" 1 3 4
+# 25 "/usr/include/stdlib.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
+# 26 "/usr/include/stdlib.h" 2 3 4
+
+
+
+
+
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h" 1 3 4
+# 321 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h" 3 4
+typedef int wchar_t;
+# 32 "/usr/include/stdlib.h" 2 3 4
+
+
+# 55 "/usr/include/stdlib.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/floatn.h" 1 3 4
+# 120 "/usr/include/x86_64-linux-gnu/bits/floatn.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/floatn-common.h" 1 3 4
+# 24 "/usr/include/x86_64-linux-gnu/bits/floatn-common.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/long-double.h" 1 3 4
+# 25 "/usr/include/x86_64-linux-gnu/bits/floatn-common.h" 2 3 4
+# 121 "/usr/include/x86_64-linux-gnu/bits/floatn.h" 2 3 4
+# 56 "/usr/include/stdlib.h" 2 3 4
+
+
+typedef struct
+  {
+    int quot;
+    int rem;
+  } div_t;
+
+
+
+typedef struct
+  {
+    long int quot;
+    long int rem;
+  } ldiv_t;
+
+
+
+
+
+__extension__ typedef struct
+  {
+    long long int quot;
+    long long int rem;
+  } lldiv_t;
+# 97 "/usr/include/stdlib.h" 3 4
+extern size_t __ctype_get_mb_cur_max (void) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+
+
+extern double atof (const char *__nptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
+
+extern int atoi (const char *__nptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
+
+extern long int atol (const char *__nptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
+
+
+
+__extension__ extern long long int atoll (const char *__nptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
+
+
+
+extern double strtod (const char *__restrict __nptr,
+        char **__restrict __endptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+extern float strtof (const char *__restrict __nptr,
+       char **__restrict __endptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+extern long double strtold (const char *__restrict __nptr,
+       char **__restrict __endptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+# 176 "/usr/include/stdlib.h" 3 4
+extern long int strtol (const char *__restrict __nptr,
+   char **__restrict __endptr, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+extern unsigned long int strtoul (const char *__restrict __nptr,
+      char **__restrict __endptr, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+# 199 "/usr/include/stdlib.h" 3 4
+__extension__
+extern long long int strtoll (const char *__restrict __nptr,
+         char **__restrict __endptr, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+__extension__
+extern unsigned long long int strtoull (const char *__restrict __nptr,
+     char **__restrict __endptr, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+# 453 "/usr/include/stdlib.h" 3 4
+extern int rand (void) __attribute__ ((__nothrow__ , __leaf__));
+
+extern void srand (unsigned int __seed) __attribute__ ((__nothrow__ , __leaf__));
+# 539 "/usr/include/stdlib.h" 3 4
+extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__))
+     __attribute__ ((__alloc_size__ (1))) ;
+
+extern void *calloc (size_t __nmemb, size_t __size)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__alloc_size__ (1, 2))) ;
+
+
+
+
+
+
+extern void *realloc (void *__ptr, size_t __size)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__)) __attribute__ ((__alloc_size__ (2)));
+# 565 "/usr/include/stdlib.h" 3 4
+extern void free (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
+# 591 "/usr/include/stdlib.h" 3 4
+extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+
+
+extern int atexit (void (*__func) (void)) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+# 617 "/usr/include/stdlib.h" 3 4
+extern void exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+# 629 "/usr/include/stdlib.h" 3 4
+extern void _Exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+
+
+
+extern char *getenv (const char *__name) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
+# 784 "/usr/include/stdlib.h" 3 4
+extern int system (const char *__command) ;
+# 808 "/usr/include/stdlib.h" 3 4
+typedef int (*__compar_fn_t) (const void *, const void *);
+# 820 "/usr/include/stdlib.h" 3 4
+extern void *bsearch (const void *__key, const void *__base,
+        size_t __nmemb, size_t __size, __compar_fn_t __compar)
+     __attribute__ ((__nonnull__ (1, 2, 5))) ;
+
+
+
+
+
+
+
+extern void qsort (void *__base, size_t __nmemb, size_t __size,
+     __compar_fn_t __compar) __attribute__ ((__nonnull__ (1, 4)));
+# 840 "/usr/include/stdlib.h" 3 4
+extern int abs (int __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
+extern long int labs (long int __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
+
+
+__extension__ extern long long int llabs (long long int __x)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
+
+
+
+
+
+
+extern div_t div (int __numer, int __denom)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
+extern ldiv_t ldiv (long int __numer, long int __denom)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
+
+
+__extension__ extern lldiv_t lldiv (long long int __numer,
+        long long int __denom)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
+# 922 "/usr/include/stdlib.h" 3 4
+extern int mblen (const char *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int mbtowc (wchar_t *__restrict __pwc,
+     const char *__restrict __s, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int wctomb (char *__s, wchar_t __wchar) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern size_t mbstowcs (wchar_t *__restrict __pwcs,
+   const char *__restrict __s, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+
+extern size_t wcstombs (char *__restrict __s,
+   const wchar_t *__restrict __pwcs, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__));
+# 1013 "/usr/include/stdlib.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/stdlib-float.h" 1 3 4
+# 1014 "/usr/include/stdlib.h" 2 3 4
+# 1023 "/usr/include/stdlib.h" 3 4
+
+# 6 "./src/common.h" 2
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stdbool.h" 1 3 4
+# 7 "./src/common.h" 2
+# 1 "/usr/include/ctype.h" 1 3 4
+# 28 "/usr/include/ctype.h" 3 4
+
+# 39 "/usr/include/ctype.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/endian.h" 1 3 4
+# 35 "/usr/include/x86_64-linux-gnu/bits/endian.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/endianness.h" 1 3 4
+# 36 "/usr/include/x86_64-linux-gnu/bits/endian.h" 2 3 4
+# 40 "/usr/include/ctype.h" 2 3 4
+
+
+
+
+
+
+enum
+{
+  _ISupper = ((0) < 8 ? ((1 << (0)) << 8) : ((1 << (0)) >> 8)),
+  _ISlower = ((1) < 8 ? ((1 << (1)) << 8) : ((1 << (1)) >> 8)),
+  _ISalpha = ((2) < 8 ? ((1 << (2)) << 8) : ((1 << (2)) >> 8)),
+  _ISdigit = ((3) < 8 ? ((1 << (3)) << 8) : ((1 << (3)) >> 8)),
+  _ISxdigit = ((4) < 8 ? ((1 << (4)) << 8) : ((1 << (4)) >> 8)),
+  _ISspace = ((5) < 8 ? ((1 << (5)) << 8) : ((1 << (5)) >> 8)),
+  _ISprint = ((6) < 8 ? ((1 << (6)) << 8) : ((1 << (6)) >> 8)),
+  _ISgraph = ((7) < 8 ? ((1 << (7)) << 8) : ((1 << (7)) >> 8)),
+  _ISblank = ((8) < 8 ? ((1 << (8)) << 8) : ((1 << (8)) >> 8)),
+  _IScntrl = ((9) < 8 ? ((1 << (9)) << 8) : ((1 << (9)) >> 8)),
+  _ISpunct = ((10) < 8 ? ((1 << (10)) << 8) : ((1 << (10)) >> 8)),
+  _ISalnum = ((11) < 8 ? ((1 << (11)) << 8) : ((1 << (11)) >> 8))
+};
+# 79 "/usr/include/ctype.h" 3 4
+extern const unsigned short int **__ctype_b_loc (void)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern const __int32_t **__ctype_tolower_loc (void)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern const __int32_t **__ctype_toupper_loc (void)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+# 108 "/usr/include/ctype.h" 3 4
+extern int isalnum (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isalpha (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int iscntrl (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isdigit (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int islower (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isgraph (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isprint (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int ispunct (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isspace (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isupper (int) __attribute__ ((__nothrow__ , __leaf__));
+extern int isxdigit (int) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern int tolower (int __c) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int toupper (int __c) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+extern int isblank (int) __attribute__ ((__nothrow__ , __leaf__));
+# 327 "/usr/include/ctype.h" 3 4
+
+# 8 "./src/common.h" 2
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h" 1 3 4
+# 34 "/usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h" 3 4
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/syslimits.h" 1 3 4
+
+
+
+
+
+
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h" 1 3 4
+# 194 "/usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h" 3 4
+# 1 "/usr/include/limits.h" 1 3 4
+# 26 "/usr/include/limits.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
+# 27 "/usr/include/limits.h" 2 3 4
+# 195 "/usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h" 2 3 4
+# 8 "/usr/lib/gcc/x86_64-linux-gnu/9/include/syslimits.h" 2 3 4
+# 35 "/usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h" 2 3 4
+# 9 "./src/common.h" 2
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/wchar.h" 1 3 4
+# 29 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 30 "/usr/include/stdint.h" 2 3 4
+
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h" 1 3 4
+# 24 "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h" 3 4
+typedef __int8_t int8_t;
+typedef __int16_t int16_t;
+typedef __int32_t int32_t;
+typedef __int64_t int64_t;
+# 35 "/usr/include/stdint.h" 2 3 4
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h" 1 3 4
+# 24 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h" 3 4
+typedef __uint8_t uint8_t;
+typedef __uint16_t uint16_t;
+typedef __uint32_t uint32_t;
+typedef __uint64_t uint64_t;
+# 38 "/usr/include/stdint.h" 2 3 4
+
+
+
+
+
+typedef __int_least8_t int_least8_t;
+typedef __int_least16_t int_least16_t;
+typedef __int_least32_t int_least32_t;
+typedef __int_least64_t int_least64_t;
+
+
+typedef __uint_least8_t uint_least8_t;
+typedef __uint_least16_t uint_least16_t;
+typedef __uint_least32_t uint_least32_t;
+typedef __uint_least64_t uint_least64_t;
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+typedef long int int_fast16_t;
+typedef long int int_fast32_t;
+typedef long int int_fast64_t;
+# 71 "/usr/include/stdint.h" 3 4
+typedef unsigned char uint_fast8_t;
+
+typedef unsigned long int uint_fast16_t;
+typedef unsigned long int uint_fast32_t;
+typedef unsigned long int uint_fast64_t;
+# 87 "/usr/include/stdint.h" 3 4
+typedef long int intptr_t;
+
+
+typedef unsigned long int uintptr_t;
+# 101 "/usr/include/stdint.h" 3 4
+typedef __intmax_t intmax_t;
+typedef __uintmax_t uintmax_t;
+# 10 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h" 2 3 4
+# 10 "./src/common.h" 2
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h" 1 3 4
+# 99 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h" 3 4
+typedef __gnuc_va_list va_list;
+# 11 "./src/common.h" 2
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/float.h" 1 3 4
+# 12 "./src/common.h" 2
+# 1 "/usr/include/time.h" 1 3 4
+# 29 "/usr/include/time.h" 3 4
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h" 1 3 4
+# 30 "/usr/include/time.h" 2 3 4
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/time.h" 1 3 4
+# 34 "/usr/include/time.h" 2 3 4
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/types/clock_t.h" 1 3 4
+
+
+
+
+
+
+typedef __clock_t clock_t;
+# 38 "/usr/include/time.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/types/time_t.h" 1 3 4
+
+
+
+
+
+
+typedef __time_t time_t;
+# 39 "/usr/include/time.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h" 1 3 4
+
+
+
+
+
+
+struct tm
+{
+  int tm_sec;
+  int tm_min;
+  int tm_hour;
+  int tm_mday;
+  int tm_mon;
+  int tm_year;
+  int tm_wday;
+  int tm_yday;
+  int tm_isdst;
+
+
+
+
+
+  long int __tm_gmtoff;
+  const char *__tm_zone;
+
+};
+# 40 "/usr/include/time.h" 2 3 4
+# 68 "/usr/include/time.h" 3 4
+
+
+
+
+extern clock_t clock (void) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern time_t time (time_t *__timer) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern double difftime (time_t __time1, time_t __time0)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+
+
+extern time_t mktime (struct tm *__tp) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+extern size_t strftime (char *__restrict __s, size_t __maxsize,
+   const char *__restrict __format,
+   const struct tm *__restrict __tp) __attribute__ ((__nothrow__ , __leaf__));
+# 119 "/usr/include/time.h" 3 4
+extern struct tm *gmtime (const time_t *__timer) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern struct tm *localtime (const time_t *__timer) __attribute__ ((__nothrow__ , __leaf__));
+# 139 "/usr/include/time.h" 3 4
+extern char *asctime (const struct tm *__tp) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern char *ctime (const time_t *__timer) __attribute__ ((__nothrow__ , __leaf__));
+# 159 "/usr/include/time.h" 3 4
+extern char *__tzname[2];
+extern int __daylight;
+extern long int __timezone;
+# 301 "/usr/include/time.h" 3 4
+
+# 13 "./src/common.h" 2
+# 106 "./src/common.h"
+
+# 106 "./src/common.h"
+typedef struct
+    str {
+        int type;
+        size_t len;
+        char* seq;
+} str;
+
+typedef struct
+    itr {
+        int type;
+        long val;
+} itr;
+
+typedef struct
+    flt {
+        int type;
+        double val;
+        int fracdigs;
+} flt;
+
+typedef struct
+    kvp {
+        char* key;
+        void* value;
+} kvp;
+
+typedef struct
+    hsh {
+        int type;
+        size_t len;
+        kvp** kvptrs;
+} hsh;
+
+typedef struct
+    vec {
+        int type;
+        size_t len;
+        void** ptrs;
+} vec;
+
+typedef struct
+    arr {
+        int type;
+        int subtype;
+        void* data;
+} arr;
+
+typedef struct
+ mat {
+  int type;
+  int datatype;
+  size_t m;
+  size_t n;
+  void* data;
+} mat;
+# 169 "./src/common.h"
+int
+openLog();
+
+int
+logMessage(int n, ...);
+
+int
+closeLog();
+
+void
+throwFatal(const char* func, const char* desc);
+
+int
+setSuccess(const char* func);
+
+int
+setWarning(const char* func, const char* desc);
+
+int
+setError(char* errtype, const char* func, const char* desc);
+
+
+
+
+size_t
+seqLen(const char* seq_in);
+
+char*
+seqChar(char* seq_in, char c, size_t len);
+
+char*
+seqDupl(const char* seq_in);
+
+itr*
+seqToInteger(char* seq_in);
+
+flt*
+seqToFloat(char* seq_in);
+
+
+# 208 "./src/common.h" 3 4
+_Bool
+
+# 209 "./src/common.h"
+seqSame(const char* target, const char* comp);
+
+int
+setString(str* str_in, const char* seq_in);
+
+str*
+stringInit(const char* seq_in);
+
+int
+destroyString(str* str_in);
+
+int
+growString(str* str_in, size_t new_len);
+
+int
+addString(str* target, str* adding);
+
+int
+insertString(str* target, str* adding, size_t pos);
+
+size_t
+findString(str* target, str* find);
+
+str*
+duplicateString(str* input_str);
+
+str*
+sliceFromString(str* input_str, size_t start, size_t end);
+
+
+
+itr*
+integerInit(long val);
+
+int
+destroyInteger(itr* itr_in);
+
+itr*
+duplicateInteger(itr* itr_in);
+
+
+
+flt*
+floatInit(double val_in, int prec_in);
+
+int
+destroyFloat(flt* flt_in);
+
+flt*
+duplicateFloat(flt* flt_in);
+
+
+
+int
+destroyKeyValuePair(kvp* kvp_in);
+
+kvp*
+duplicateKeyValuePair(kvp* kvp_in);
+
+hsh*
+hashInit();
+
+void*
+accessHashValue(hsh* hash_in, const char* key_access);
+
+kvp*
+accessHashPair(hsh* hash_in, const char* key_access);
+
+int
+changeKey(hsh* hash_in, const char* key_current, const char* key_new);
+
+int
+addKeyToHash(hsh* hash_in, const char* key_in, void* value_in);
+
+int
+moveKeyToHash(hsh* hash_in, const char* key_in, void* eating);
+
+int
+removeFromHash(hsh* hash_in, const char* key_delete);
+
+int
+destroyHash(hsh* hash_in);
+
+hsh*
+duplicateHash(hsh* hash_in);
+
+
+
+size_t
+vecayLength(void* vec_in);
+
+int
+destroyVector(vec* vec_in);
+
+int
+removeFromVector(vec* vec_in, size_t pos);
+
+void*
+accessVector(vec* vec_in, size_t loc);
+
+vec*
+vectorInitV(size_t len, ...);
+
+int
+growVectorPointers(vec* vec_in, size_t new_len);
+
+int
+truncateVector(vec* vec_in, size_t new_len);
+
+int
+appendToVector(vec* target, void* adding);
+
+int
+moveToVectorEnd(vec* target, void* eating);
+
+int
+mergeVectorsAt(vec* target, vec* adding, size_t pos);
+
+int
+addToVectorAt(vec* target, void* obj_in, size_t pos);
+
+vec*
+duplicateVector(vec* vec_in);
+
+
+
+mat*
+matrixInit(int data_type_in, size_t rows, size_t columns, const char* options);
+
+int
+destroyMatrix(mat* mat_in);
+
+mat*
+duplicateMatrix(mat* mat_in);
+
+
+
+int
+destroy(void* obj_in);
+
+int
+destroyV(uint32_t n, ...);
+
+void*
+duplicate(void* obj_in);
+
+size_t
+printedLength(void* obj_in, size_t nested_level, 
+# 356 "./src/common.h" 3 4
+                                                _Bool 
+# 356 "./src/common.h"
+                                                     oneline);
+
+char*
+objectAsChars(void* obj_in, size_t nested_level, 
+# 359 "./src/common.h" 3 4
+                                                _Bool 
+# 359 "./src/common.h"
+                                                     oneline);
+
+
+
+char*
+inputSeq(const char* prompt);
+
+void*
+input(const char* prompt, int TYPE_OUT);
+
+int
+print(void* obj_in);
+# 5 "./src/mara.h" 2
+
+
+# 1 "./src/error.h" 1
+
+
+
+
+
+unsigned long
+toArbitraryLong(char *str) {
+
+    unsigned long hash = 5381;
+    int c;
+    while ((c = *str++)) {
+        hash = ((hash << 5) + hash) + c;
+    }
+    return hash;
+}
+
+FILE* objopslog = 
+# 17 "./src/error.h" 3 4
+                 ((void *)0)
+# 17 "./src/error.h"
+                     ;
+char current_success[1024];
+char current_warning[1024];
+char current_error[1024];
+size_t msg_counter = 1;
+
+int
+openLog() {
+
+    if(objopslog != 
+# 26 "./src/error.h" 3 4
+                   ((void *)0)
+# 26 "./src/error.h"
+                       ) {
+        ;
+        return 1;
+    }
+
+    if(!(objopslog = fopen("debug.log", "w"))) {
+        printf("Unable to create log file. Exiting...\n");
+        exit(1);
+    }
+    fprintf(objopslog, "\nBEGIN\n\n");
+
+    return 0;
+}
+
+int
+logMessage(int n, ...) {
+
+    if(objopslog) {
+
+        va_list msg_args;
+        
+# 46 "./src/error.h" 3 4
+       __builtin_va_start(
+# 46 "./src/error.h"
+       msg_args
+# 46 "./src/error.h" 3 4
+       ,
+# 46 "./src/error.h"
+       n
+# 46 "./src/error.h" 3 4
+       )
+# 46 "./src/error.h"
+                            ;
+        char* current_msg = 
+# 47 "./src/error.h" 3 4
+                           ((void *)0)
+# 47 "./src/error.h"
+                               ;
+
+        fprintf(objopslog, "%zu > ", msg_counter);
+
+        for(int i = 0; i < n; i++) {
+            current_msg = 
+# 52 "./src/error.h" 3 4
+                         __builtin_va_arg(
+# 52 "./src/error.h"
+                         msg_args
+# 52 "./src/error.h" 3 4
+                         ,
+# 52 "./src/error.h"
+                         char *
+# 52 "./src/error.h" 3 4
+                         )
+# 52 "./src/error.h"
+                                                 ;
+            if(current_msg) {
+                fprintf(objopslog, "%s", current_msg);
+            }
+            current_msg = 
+# 56 "./src/error.h" 3 4
+                         ((void *)0)
+# 56 "./src/error.h"
+                             ;
+        }
+
+        fprintf(objopslog, "\n");
+        msg_counter++;
+    }
+
+    return 0;
+}
+
+int
+closeLog() {
+
+    if(objopslog) {
+        fprintf(objopslog, "\nEND\n");
+        fclose(objopslog);
+        objopslog = 
+# 72 "./src/error.h" 3 4
+                   ((void *)0)
+# 72 "./src/error.h"
+                       ;
+    } else {
+        ;
+        return 1;
+    }
+
+    return 0;
+}
+
+void
+throwFatal(const char* func, const char* desc) {
+
+    if(objopslog) {
+        fprintf(objopslog, "\nFATAL ERROR in %s - %s. Aborting...\n", func, desc);
+        fclose(objopslog);
+    }
+    exit(1);
+}
+
+int
+setSuccess(const char* func) {
+
+    sprintf(current_success, "%sSUCCESS%s in: %s%s%s\n", "\x1B[32m", "\x1B[0m", "\x1B[33m", func, "\x1B[0m");
+
+    if(0) {
+        printf("%s", current_success);
+    }
+    if(objopslog) {
+        fprintf(objopslog, "%zu > SUCCESS in: %s\n", msg_counter, func);
+    }
+    msg_counter++;
+
+    return 0;
+}
+
+int
+setWarning(const char* func, const char* desc) {
+
+    sprintf(current_warning, "%sWARNING%s in %s%s%s - %s%s%s\n", "\x1B[35m", "\x1B[0m", "\x1B[33m", func, "\x1B[0m", "\x1B[36m", desc, "\x1B[0m");
+
+    if(0) {
+        printf("%s", current_warning);
+    }
+    if(objopslog) {
+        fprintf(objopslog, "%zu > WARNING in %s - %s\n", msg_counter, func, desc);
+    }
+    msg_counter++;
+
+    return 0;
+}
+
+int
+setError(char* errtype, const char* func, const char* desc) {
+
+    sprintf(current_error, "%s%s%s in %s%s%s - %s%s%s\n", "\x1B[31m", errtype, "\x1B[0m", "\x1B[33m", func, "\x1B[0m", "\x1B[31m", desc, "\x1B[0m");
+
+    if(0) {
+        printf("%s", current_error);
+    }
+    if(objopslog) {
+        fprintf(objopslog, "%zu > %s in %s - %s\n", msg_counter, errtype, func, desc);
+    }
+    msg_counter++;
+
+    return 0;
+}
+# 8 "./src/mara.h" 2
+
+
+# 1 "./src/./types/string.h" 1
+
+
+
+# 1 "./src/./types/../common.h" 1
+# 5 "./src/./types/string.h" 2
+
+size_t
+seqLen(const char* seq_in) {
+
+    size_t len = 0;
+    const char* it = seq_in;
+    while(*it != '\0' && len <= 
+# 11 "./src/./types/string.h" 3 4
+                               (18446744073709551615UL) 
+# 11 "./src/./types/string.h"
+                               - 1) {
+        len++, it++;
+    }
+
+    return len;
+}
+
+char*
+seqChar(char* seq_in, char c, size_t len) {
+
+    for(size_t index = 0; index < len; index++) {
+        if(seq_in[index] == c) {
+
+            return &seq_in[index];
+        }
+    }
+
+    return 
+# 28 "./src/./types/string.h" 3 4
+          ((void *)0)
+# 28 "./src/./types/string.h"
+              ;
+}
+
+char*
+seqDupl(const char* seq_in) {
+
+    if(seq_in == 
+# 34 "./src/./types/string.h" 3 4
+                ((void *)0)
+# 34 "./src/./types/string.h"
+                    ) {
+        ;
+        return 
+# 36 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 36 "./src/./types/string.h"
+                  ;
+    }
+
+    size_t seq_in_len = seqLen(seq_in);
+    char* seq_out = 
+# 40 "./src/./types/string.h" 3 4
+                   ((void *)0)
+# 40 "./src/./types/string.h"
+                       ;
+
+    if(!(seq_out = malloc(seq_in_len + 1))) {
+        throwFatal(__func__, "Allocate failed for: seq_out (malloc)");
+    }
+    for(size_t i = 0; i < seq_in_len; i++) {
+        seq_out[i] = seq_in[i];
+    }
+    seq_out[seq_in_len] = '\0';
+
+    ;
+    return seq_out;
+}
+
+itr*
+seqToInteger(char* seq_in) {
+
+    if(seq_in == 
+# 57 "./src/./types/string.h" 3 4
+                ((void *)0)
+# 57 "./src/./types/string.h"
+                    ) {
+        ;
+        return 
+# 59 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 59 "./src/./types/string.h"
+                  ;
+    }
+
+    for(size_t i = 0; i < seqLen(seq_in); i++) {
+        if(!
+# 63 "./src/./types/string.h" 3 4
+           ((*__ctype_b_loc ())[(int) ((
+# 63 "./src/./types/string.h"
+           seq_in[i]
+# 63 "./src/./types/string.h" 3 4
+           ))] & (unsigned short int) _ISdigit)
+# 63 "./src/./types/string.h"
+                             ) {
+            ;
+            return 
+# 65 "./src/./types/string.h" 3 4
+                  ((void *)0)
+# 65 "./src/./types/string.h"
+                      ;
+        }
+    }
+
+    char* end_ptr = seq_in;
+    long val = strtol(seq_in, &end_ptr, 10);
+
+    if(end_ptr == seq_in) {
+        ;
+        return 
+# 74 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 74 "./src/./types/string.h"
+                  ;
+    }
+
+    void* itr_out = 
+# 77 "./src/./types/string.h" 3 4
+                   ((void *)0)
+# 77 "./src/./types/string.h"
+                       ;
+    if(!(itr_out = integerInit(val))) {
+        ;
+        return 
+# 80 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 80 "./src/./types/string.h"
+                  ;
+    }
+
+    ;
+    return itr_out;
+}
+
+flt*
+seqToFloat(char* seq_in) {
+
+    if(seq_in == 
+# 90 "./src/./types/string.h" 3 4
+                ((void *)0)
+# 90 "./src/./types/string.h"
+                    ) {
+        ;
+        return 
+# 92 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 92 "./src/./types/string.h"
+                  ;
+    }
+
+    for(size_t i = 0; i < seqLen(seq_in); i++) {
+        if(!
+# 96 "./src/./types/string.h" 3 4
+           ((*__ctype_b_loc ())[(int) ((
+# 96 "./src/./types/string.h"
+           seq_in[i]
+# 96 "./src/./types/string.h" 3 4
+           ))] & (unsigned short int) _ISdigit) 
+# 96 "./src/./types/string.h"
+                              && seq_in[i] != '.' && seq_in[i] != 'e' && seq_in[i] != '-') {
+            ;
+            return 
+# 98 "./src/./types/string.h" 3 4
+                  ((void *)0)
+# 98 "./src/./types/string.h"
+                      ;
+        }
+    }
+
+    char* end_ptr = seq_in;
+    double val = strtod(seq_in, &end_ptr);
+    int fracdigs = 0;
+
+    if(end_ptr == seq_in) {
+        ;
+        return 
+# 108 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 108 "./src/./types/string.h"
+                  ;
+    }
+
+    char* e_loc = seqChar(seq_in, 'e', seqLen(seq_in));
+    char* decimal_loc = seqChar(seq_in, '.', seqLen(seq_in));
+
+    if(decimal_loc) {
+        if(*(decimal_loc + 1) != '\0') {
+            if(seqChar(decimal_loc + 1, '.', seqLen(seq_in) - (size_t)(decimal_loc - seq_in + 1))) {
+                ;
+                return 
+# 118 "./src/./types/string.h" 3 4
+                      ((void *)0)
+# 118 "./src/./types/string.h"
+                          ;
+            }
+        }
+    }
+    if(e_loc) {
+        if(*(e_loc + 1) != '\0') {
+            if(seqChar(e_loc + 1, 'e', seqLen(seq_in) - (size_t)(e_loc - seq_in + 1))) {
+                ;
+                return 
+# 126 "./src/./types/string.h" 3 4
+                      ((void *)0)
+# 126 "./src/./types/string.h"
+                          ;
+            }
+        }
+    }
+    if(e_loc && *(e_loc + 1) == '-') {
+        char* it = e_loc;
+        if(decimal_loc) {
+            while(*(it - 1) != '.') {
+                it--;
+                fracdigs++;
+            }
+        }
+        fracdigs += (int)strtol(e_loc + 2, 
+# 138 "./src/./types/string.h" 3 4
+                                          ((void *)0)
+# 138 "./src/./types/string.h"
+                                              , 10);
+    } else if (!e_loc && decimal_loc) {
+        fracdigs += (seqLen(seq_in) - (int)(decimal_loc - seq_in + 1));
+    }
+    if(fracdigs > 30) {
+        ;
+        return 
+# 144 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 144 "./src/./types/string.h"
+                  ;
+    }
+    if(val > 1e20) {
+        ;
+        return 
+# 148 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 148 "./src/./types/string.h"
+                  ;
+    }
+
+    flt* flt_out = 
+# 151 "./src/./types/string.h" 3 4
+                  ((void *)0)
+# 151 "./src/./types/string.h"
+                      ;
+    if(!(flt_out = floatInit(val, fracdigs))) {
+        ;
+        return 
+# 154 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 154 "./src/./types/string.h"
+                  ;
+    }
+
+    ;
+    return flt_out;
+}
+
+
+# 161 "./src/./types/string.h" 3 4
+_Bool
+
+# 162 "./src/./types/string.h"
+seqSame(const char* target, const char* comp) {
+
+    if( target == 
+# 164 "./src/./types/string.h" 3 4
+                 ((void *)0) 
+# 164 "./src/./types/string.h"
+                      ||
+        comp == 
+# 165 "./src/./types/string.h" 3 4
+               ((void *)0)
+# 165 "./src/./types/string.h"
+                   ) {
+            ;
+            return 
+# 167 "./src/./types/string.h" 3 4
+                  0
+# 167 "./src/./types/string.h"
+                       ;
+    }
+
+    size_t target_len = seqLen(target);
+    if(target_len != seqLen(comp)) {
+        return 
+# 172 "./src/./types/string.h" 3 4
+              0
+# 172 "./src/./types/string.h"
+                   ;
+    }
+
+    for(size_t i = 0; i < target_len; i++) {
+        if(target[i] != comp[i]) {
+            return 
+# 177 "./src/./types/string.h" 3 4
+                  0
+# 177 "./src/./types/string.h"
+                       ;
+        }
+    }
+
+    ;
+    return 
+# 182 "./src/./types/string.h" 3 4
+          1
+# 182 "./src/./types/string.h"
+              ;
+}
+
+int
+setString(str* str_in, const char* seq_in) {
+
+    if( str_in == 
+# 188 "./src/./types/string.h" 3 4
+                 ((void *)0) 
+# 188 "./src/./types/string.h"
+                      ||
+        seq_in == 
+# 189 "./src/./types/string.h" 3 4
+                 ((void *)0)
+# 189 "./src/./types/string.h"
+                     ) {
+            ;
+            return 1;
+    }
+    if(str_in->seq) {
+        free(str_in->seq);
+    }
+
+    if(!(str_in->seq = malloc(seqLen(seq_in) + 1))) {
+        throwFatal(__func__, "Allocate failed for: str_in->seq (malloc)");
+    }
+
+    for(size_t i = 0; i <= seqLen(seq_in); i++) {
+        str_in->seq[i] = seq_in[i];
+    }
+
+    ;
+    return 0;
+}
+
+str*
+stringInit(const char* seq_in) {
+
+    if(seq_in == 
+# 212 "./src/./types/string.h" 3 4
+                ((void *)0)
+# 212 "./src/./types/string.h"
+                    ) {
+        ;
+        return 
+# 214 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 214 "./src/./types/string.h"
+                  ;
+    }
+    if(seqLen(seq_in) == 
+# 216 "./src/./types/string.h" 3 4
+                        (18446744073709551615UL)
+# 216 "./src/./types/string.h"
+                               ) {
+        ;
+        return 
+# 218 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 218 "./src/./types/string.h"
+                  ;
+    }
+
+    str* output_str = 
+# 221 "./src/./types/string.h" 3 4
+                     ((void *)0)
+# 221 "./src/./types/string.h"
+                         ;
+    if(!(output_str = malloc(sizeof(str)))) {
+        throwFatal(__func__, "Allocate failed for: output_str (malloc)");
+    }
+
+    if(!(output_str->seq = malloc(seqLen(seq_in) + 1))) {
+        free(output_str);
+        throwFatal(__func__, "Allocate failed for: output_str->seq (malloc)");
+    }
+    output_str->type = 1;
+    output_str->len = seqLen(seq_in);
+
+    for(size_t seq_ind = 0; seq_ind < seqLen(seq_in) + 1; seq_ind++) {
+        output_str->seq[seq_ind] = seq_in[seq_ind];
+    }
+
+    ;
+    return output_str;
+}
+
+int
+destroyString(str* str_in) {
+
+    if(str_in == 
+# 244 "./src/./types/string.h" 3 4
+                ((void *)0)
+# 244 "./src/./types/string.h"
+                    ) {
+        ;
+        return 1;
+    }
+    if(str_in->seq) {
+        free(str_in->seq);
+    }
+    free(str_in);
+
+    ;
+    return 0;
+}
+
+int
+growString(str* str_in, size_t new_len) {
+
+    if(str_in == 
+# 260 "./src/./types/string.h" 3 4
+                ((void *)0)
+# 260 "./src/./types/string.h"
+                    ) {
+        ;
+        return 1;
+    }
+    if(new_len < str_in->len) {
+        ;
+        return 2;
+    }
+    if(new_len == 
+# 268 "./src/./types/string.h" 3 4
+                 (18446744073709551615UL)
+# 268 "./src/./types/string.h"
+                        ) {
+        ;
+        return 3;
+    }
+
+    if(str_in->len == new_len) {
+        return 0;
+    }
+
+    char *new_seq = 
+# 277 "./src/./types/string.h" 3 4
+                   ((void *)0)
+# 277 "./src/./types/string.h"
+                       ;
+    if(!(new_seq = realloc(str_in->seq, new_len + 1))) {
+        throwFatal(__func__, "Allocate failed for: new_seq (realloc)");
+    }
+    str_in->len = new_len;
+    str_in->seq = new_seq;
+    str_in->seq[new_len] = '\0';
+
+    ;
+    return 0;
+}
+
+int
+addString(str* target, str* adding) {
+
+    if(target == 
+# 292 "./src/./types/string.h" 3 4
+                ((void *)0)
+# 292 "./src/./types/string.h"
+                    ) {
+        ;
+        return 1;
+    }
+    if(adding == 
+# 296 "./src/./types/string.h" 3 4
+                ((void *)0)
+# 296 "./src/./types/string.h"
+                    ) {
+        ;
+        return 2;
+    }
+    if(target->len + adding->len == 
+# 300 "./src/./types/string.h" 3 4
+                                   (18446744073709551615UL)
+# 300 "./src/./types/string.h"
+                                          ) {
+        ;
+        return 4;
+    }
+
+    if(adding->len == 0) {
+        ;
+        return 0;
+    }
+
+    size_t target_old_len = target->len;
+
+    if( 0 != growString(target, target->len + adding->len) ) {
+        ;
+        return 5;
+    }
+
+    char* target_it = &target->seq[target_old_len];
+    const char* adding_it = adding->seq;
+    while(*adding_it != '\0') {
+        *target_it = *adding_it;
+        target_it++;
+        adding_it++;
+    }
+
+    ;
+    return 0;
+}
+
+int
+insertString(str* target, str* adding, size_t pos) {
+
+    if(target == 
+# 332 "./src/./types/string.h" 3 4
+                ((void *)0)
+# 332 "./src/./types/string.h"
+                    ) {
+        ;
+        return 1;
+    }
+    if(adding == 
+# 336 "./src/./types/string.h" 3 4
+                ((void *)0)
+# 336 "./src/./types/string.h"
+                    ) {
+        ;
+        return 2;
+    }
+    if(
+# 340 "./src/./types/string.h" 3 4
+      (18446744073709551615UL) 
+# 340 "./src/./types/string.h"
+      - 1 - adding->len < target->len) {
+        ;
+        return 4;
+    }
+
+    if(adding->len == 0) {
+        ;
+        return 0;
+    }
+    if(pos == target->len) {
+        return addString(target, adding);
+    }
+
+    size_t target_old_len = target->len;
+
+    if(!(growString(target, target->len + adding->len))) {
+        ;
+        return 5;
+    }
+    for(size_t i = pos; i < target_old_len; i++) {
+        target->seq[i + adding->len] = target->seq[i];
+    }
+
+    char* adding_it = adding->seq;
+
+    for(size_t i = pos; *adding_it != '\0'; i++) {
+        target->seq[i] = *adding_it;
+        adding_it++;
+    }
+    ;
+    return 0;
+}
+
+size_t
+findString(str* target, str* find) {
+
+    if( target == 
+# 376 "./src/./types/string.h" 3 4
+                 ((void *)0) 
+# 376 "./src/./types/string.h"
+                      ||
+        find == 
+# 377 "./src/./types/string.h" 3 4
+               ((void *)0)
+# 377 "./src/./types/string.h"
+                   ) {
+            ;
+            return 
+# 379 "./src/./types/string.h" 3 4
+                  (18446744073709551615UL)
+# 379 "./src/./types/string.h"
+                         ;
+    }
+    if(*(int *)target != 1 || *(int *)find != 1) {
+        ;
+        return 
+# 383 "./src/./types/string.h" 3 4
+              (18446744073709551615UL)
+# 383 "./src/./types/string.h"
+                     ;
+    }
+    if(find->len > target->len) {
+        ;
+        return 
+# 387 "./src/./types/string.h" 3 4
+              (18446744073709551615UL)
+# 387 "./src/./types/string.h"
+                     ;
+    }
+
+    for(size_t i = 0; i <= target->len - find->len; i++) {
+        size_t chars_same = 0;
+        for(size_t j = 0; j < find->len; j++) {
+            if(find->seq[j] == target->seq[i + j])
+                chars_same++;
+        }
+        if(chars_same == find->len) {
+            return i;
+        }
+    }
+
+    return 
+# 401 "./src/./types/string.h" 3 4
+          (18446744073709551615UL)
+# 401 "./src/./types/string.h"
+                 ;
+}
+
+str*
+duplicateString(str* input_str) {
+
+    if(input_str == 
+# 407 "./src/./types/string.h" 3 4
+                   ((void *)0)
+# 407 "./src/./types/string.h"
+                       ) {
+        ;
+        return 
+# 409 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 409 "./src/./types/string.h"
+                  ;
+    }
+
+    void* output_str = 
+# 412 "./src/./types/string.h" 3 4
+                      ((void *)0)
+# 412 "./src/./types/string.h"
+                          ;
+    if(!(output_str = stringInit(input_str->seq))) {
+        ;
+    }
+
+    ;
+    return output_str;
+}
+
+str*
+sliceFromString(str* input_str, size_t start, size_t end) {
+
+    if(input_str == 
+# 424 "./src/./types/string.h" 3 4
+                   ((void *)0)
+# 424 "./src/./types/string.h"
+                       ) {
+        ;
+        return 
+# 426 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 426 "./src/./types/string.h"
+                  ;
+    }
+    if(start >= input_str->len || end >= input_str->len) {
+        ;
+        return 
+# 430 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 430 "./src/./types/string.h"
+                  ;
+    }
+
+    str* output_str = 
+# 433 "./src/./types/string.h" 3 4
+                     ((void *)0)
+# 433 "./src/./types/string.h"
+                         ;
+    if(!(output_str = stringInit(""))) {
+        ;
+        return 
+# 436 "./src/./types/string.h" 3 4
+              ((void *)0)
+# 436 "./src/./types/string.h"
+                  ;
+    }
+
+    size_t target_ind = 0;
+
+    if (start < end) {
+        if(growString(output_str, end - start + 1)) {
+            ;
+            return 
+# 444 "./src/./types/string.h" 3 4
+                  ((void *)0)
+# 444 "./src/./types/string.h"
+                      ;
+        }
+        for(size_t i = start; i <= end; i++) {
+            output_str->seq[target_ind] = input_str->seq[i];
+            target_ind++;
+        }
+        output_str->len = end - start + 1;
+    } else if (start > end) {
+        if(growString(output_str, start - end + 1)) {
+            ;
+            return 
+# 454 "./src/./types/string.h" 3 4
+                  ((void *)0)
+# 454 "./src/./types/string.h"
+                      ;
+        }
+        for(size_t i = start; i > end; --i) {
+            output_str->seq[target_ind] = input_str->seq[i];
+            target_ind++;
+        }
+        output_str->seq[target_ind] = input_str->seq[end];
+        output_str->len = start - end + 1;
+    } else {
+        if(growString(output_str, 1)) {
+            ;
+            return 
+# 465 "./src/./types/string.h" 3 4
+                  ((void *)0)
+# 465 "./src/./types/string.h"
+                      ;
+        }
+        output_str->seq[0] = input_str->seq[start];
+    }
+
+    ;
+    return output_str;
+}
+# 11 "./src/mara.h" 2
+# 1 "./src/./types/integer.h" 1
+
+
+
+
+
+itr*
+integerInit(long val) {
+
+    itr* itr_out = 
+# 9 "./src/./types/integer.h" 3 4
+                  ((void *)0)
+# 9 "./src/./types/integer.h"
+                      ;
+    if(!(itr_out = malloc(sizeof(itr)))) {
+        throwFatal(__func__, "Allocate failed for: itr_out (malloc)");
+        return 
+# 12 "./src/./types/integer.h" 3 4
+              ((void *)0)
+# 12 "./src/./types/integer.h"
+                  ;
+    }
+    itr_out->type = 2;
+    itr_out->val = val;
+
+    ;
+    return itr_out;
+}
+
+int
+destroyInteger(itr* itr_in) {
+
+    if(itr_in == 
+# 24 "./src/./types/integer.h" 3 4
+                ((void *)0)
+# 24 "./src/./types/integer.h"
+                    ) {
+        ;
+        return 1;
+    }
+    free(itr_in);
+
+    ;
+    return 0;
+}
+
+itr*
+duplicateInteger(itr* itr_in) {
+
+    if(itr_in == 
+# 37 "./src/./types/integer.h" 3 4
+                ((void *)0)
+# 37 "./src/./types/integer.h"
+                    ) {
+        ;
+        return 
+# 39 "./src/./types/integer.h" 3 4
+              ((void *)0)
+# 39 "./src/./types/integer.h"
+                  ;
+    }
+
+    itr* itr_out = 
+# 42 "./src/./types/integer.h" 3 4
+                  ((void *)0)
+# 42 "./src/./types/integer.h"
+                      ;
+    if(!(itr_out = integerInit(itr_in->val))) {
+        ;
+        return 
+# 45 "./src/./types/integer.h" 3 4
+              ((void *)0)
+# 45 "./src/./types/integer.h"
+                  ;
+    }
+
+    ;
+    return itr_out;
+}
+# 12 "./src/mara.h" 2
+# 1 "./src/./types/float.h" 1
+
+
+
+
+
+flt*
+floatInit(double val_in, int prec_in) {
+
+    flt* flt_out = malloc(sizeof(flt));
+    if(flt_out == 
+# 10 "./src/./types/float.h" 3 4
+                 ((void *)0)
+# 10 "./src/./types/float.h"
+                     ) {
+        throwFatal(__func__, "Allocate failed for: flt_out (malloc)");
+    }
+
+    flt_out->type = 3;
+    flt_out->fracdigs = prec_in;
+    flt_out->val = val_in;
+
+    ;
+    return flt_out;
+}
+
+int
+destroyFloat(flt* flt_in) {
+
+    if(flt_in == 
+# 25 "./src/./types/float.h" 3 4
+                ((void *)0)
+# 25 "./src/./types/float.h"
+                    ) {
+        ;
+        return 1;
+    }
+
+    free(flt_in);
+    ;
+    return 0;
+}
+
+flt*
+duplicateFloat(flt* flt_in) {
+
+    if(flt_in == 
+# 38 "./src/./types/float.h" 3 4
+                ((void *)0)
+# 38 "./src/./types/float.h"
+                    ) {
+        ;
+        return 
+# 40 "./src/./types/float.h" 3 4
+              ((void *)0)
+# 40 "./src/./types/float.h"
+                  ;
+    }
+
+    flt* flt_out = floatInit(flt_in->val, flt_in->fracdigs);
+    if(flt_out == 
+# 44 "./src/./types/float.h" 3 4
+                 ((void *)0)
+# 44 "./src/./types/float.h"
+                     ) {
+        ;
+        return 
+# 46 "./src/./types/float.h" 3 4
+              ((void *)0)
+# 46 "./src/./types/float.h"
+                  ;
+    }
+
+    flt_out->fracdigs = flt_in->fracdigs;
+
+    ;
+    return flt_out;
+}
+# 13 "./src/mara.h" 2
+# 1 "./src/./types/vector.h" 1
+
+
+
+
+
+int
+destroyVector(vec* vec_in) {
+
+    if(vec_in == 
+# 9 "./src/./types/vector.h" 3 4
+                ((void *)0)
+# 9 "./src/./types/vector.h"
+                    ) {
+        ;
+        return 1;
+    }
+
+    for(size_t i = 0; i < vec_in->len; i++) {
+        destroy(vec_in->ptrs[i]);
+    }
+    free(vec_in->ptrs);
+    free(vec_in);
+
+    ;
+    return 0;
+}
+
+int
+removeFromVector(vec* vec_in, size_t pos) {
+
+    if(vec_in == 
+# 27 "./src/./types/vector.h" 3 4
+                ((void *)0)
+# 27 "./src/./types/vector.h"
+                    ) {
+        ;
+        return 1;
+    }
+
+    destroy(vec_in->ptrs[pos]);
+
+    for(size_t i = pos; i < vec_in->len - 1; i++) {
+        vec_in->ptrs[i] = vec_in->ptrs[i + 1];
+    }
+
+    void** temp_ptrs = 
+# 38 "./src/./types/vector.h" 3 4
+                      ((void *)0)
+# 38 "./src/./types/vector.h"
+                          ;
+    if(!(temp_ptrs = malloc((vec_in->len - 1) * sizeof(void *)))) {
+        throwFatal(__func__, "Allocate failed for: temp_ptrs (malloc)");
+    }
+
+    for(size_t i = 0; i < vec_in->len - 1; i++) {
+        temp_ptrs[i] = vec_in->ptrs[i];
+    }
+    free(vec_in->ptrs);
+
+    vec_in->ptrs = temp_ptrs;
+    vec_in->len--;
+
+    ;
+    return 0;
+}
+
+void*
+accessVector(vec* vec_in, size_t loc) {
+
+    if(vec_in == 
+# 58 "./src/./types/vector.h" 3 4
+                ((void *)0)
+# 58 "./src/./types/vector.h"
+                    ) {
+        ;
+    }
+    if(loc >= vec_in->len) {
+        ;
+        return 
+# 63 "./src/./types/vector.h" 3 4
+              ((void *)0)
+# 63 "./src/./types/vector.h"
+                  ;
+    }
+
+    return vec_in->ptrs[loc];
+}
+
+vec*
+vectorInitV(size_t len, ...) {
+
+    vec* vec_out = 
+# 72 "./src/./types/vector.h" 3 4
+                  ((void *)0)
+# 72 "./src/./types/vector.h"
+                      ;
+    if(!(vec_out = malloc(sizeof(vec)))) {
+        throwFatal(__func__, "Allocate failed for: vec_out (malloc)");
+    }
+    vec_out->type = 5;
+
+    if(len != 0) {
+        if(!(vec_out->ptrs = malloc(len * sizeof(void *)))) {
+            free(vec_out);
+            throwFatal(__func__, "Allocate failed for: vec_out->ptrs (malloc)");
+        }
+        va_list obj_args;
+        
+# 84 "./src/./types/vector.h" 3 4
+       __builtin_va_start(
+# 84 "./src/./types/vector.h"
+       obj_args
+# 84 "./src/./types/vector.h" 3 4
+       ,
+# 84 "./src/./types/vector.h"
+       len
+# 84 "./src/./types/vector.h" 3 4
+       )
+# 84 "./src/./types/vector.h"
+                              ;
+
+        for(size_t i = 0; i < len; i++) {
+            vec_out->ptrs[i] = duplicate(
+# 87 "./src/./types/vector.h" 3 4
+                                        __builtin_va_arg(
+# 87 "./src/./types/vector.h"
+                                        obj_args
+# 87 "./src/./types/vector.h" 3 4
+                                        ,
+# 87 "./src/./types/vector.h"
+                                        void *
+# 87 "./src/./types/vector.h" 3 4
+                                        )
+# 87 "./src/./types/vector.h"
+                                                                );
+            if(!vec_out->ptrs[i]) {
+                destroy(vec_out);
+                ;
+                return 
+# 91 "./src/./types/vector.h" 3 4
+                      ((void *)0)
+# 91 "./src/./types/vector.h"
+                          ;
+            }
+        }
+        vec_out->len = len;
+
+    } else {
+        vec_out->ptrs = 
+# 97 "./src/./types/vector.h" 3 4
+                       ((void *)0)
+# 97 "./src/./types/vector.h"
+                           ;
+        vec_out->len = 0;
+    }
+
+    ;
+    return vec_out;
+}
+
+int
+growVectorPointers(vec* vec_in, size_t new_len) {
+
+    if(vec_in == 
+# 108 "./src/./types/vector.h" 3 4
+                ((void *)0)
+# 108 "./src/./types/vector.h"
+                    ) {
+        ;
+        return 1;
+    }
+    if(new_len < vec_in->len || new_len == 
+# 112 "./src/./types/vector.h" 3 4
+                                          (18446744073709551615UL)
+# 112 "./src/./types/vector.h"
+                                                 ) {
+        ;
+        return 3;
+    }
+
+    void** new_ptrs = 
+# 117 "./src/./types/vector.h" 3 4
+                     ((void *)0)
+# 117 "./src/./types/vector.h"
+                         ;
+    if(!(new_ptrs = realloc(vec_in->ptrs, new_len * sizeof(void *)))) {
+        throwFatal(__func__, "Allocate failed for: new_ptrs (realloc). Input vecay unchanged");
+    }
+
+    for(size_t i = vec_in->len; i < new_len; i++) {
+        new_ptrs[i] = 
+# 123 "./src/./types/vector.h" 3 4
+                     ((void *)0)
+# 123 "./src/./types/vector.h"
+                         ;
+    }
+    vec_in->len = new_len;
+    vec_in->ptrs = new_ptrs;
+
+    ;
+    return 0;
+}
+
+int
+truncateVector(vec* vec_in, size_t new_len) {
+
+    if(vec_in == 
+# 135 "./src/./types/vector.h" 3 4
+                ((void *)0)
+# 135 "./src/./types/vector.h"
+                    ) {
+        ;
+        return 1;
+    }
+    if(new_len > vec_in->len) {
+        ;
+        return 2;
+    }
+
+    void** temp_ptrs = 
+# 144 "./src/./types/vector.h" 3 4
+                      ((void *)0)
+# 144 "./src/./types/vector.h"
+                          ;
+    if(!(temp_ptrs = malloc(new_len * sizeof(void*)))) {
+        throwFatal(__func__, "Allocate failed for: temp_ptrs (malloc). Input vecay unchanged");
+    }
+
+    for(size_t i = new_len; i < vec_in->len; i++) {
+        if(vec_in->ptrs[i]) {
+            destroy(vec_in->ptrs[i]);
+        }
+    }
+    for(size_t i = 0; i < new_len; i++) {
+        temp_ptrs[i] = vec_in->ptrs[i];
+    }
+    free(vec_in->ptrs);
+    vec_in->ptrs = temp_ptrs;
+    vec_in->len = new_len;
+
+    ;
+    return 0;
+}
+
+int
+appendToVector(vec* target, void* adding) {
+
+    if( adding == 
+# 168 "./src/./types/vector.h" 3 4
+                 ((void *)0) 
+# 168 "./src/./types/vector.h"
+                      ||
+        target == 
+# 169 "./src/./types/vector.h" 3 4
+                 ((void *)0)
+# 169 "./src/./types/vector.h"
+                     ) {
+            ;
+            return 1;
+    }
+
+    size_t target_old_len = target->len;
+
+    if(*(int *)adding == 5) {
+
+        vec* adding_cast = (vec*) adding;
+
+        if(
+# 180 "./src/./types/vector.h" 3 4
+          (18446744073709551615UL) 
+# 180 "./src/./types/vector.h"
+          - 1 - target->len < adding_cast->len) {
+            ;
+            return 3;
+        }
+
+        if(growVectorPointers(target, target->len + adding_cast->len)) {
+            ;
+            return 4;
+        }
+        for(size_t adding_it = 0, i = target->len - adding_cast->len; i < target->len; adding_it++, i++) {
+            void* temp_obj = 
+# 190 "./src/./types/vector.h" 3 4
+                            ((void *)0)
+# 190 "./src/./types/vector.h"
+                                ;
+            if(!(temp_obj = duplicate(adding_cast->ptrs[adding_it]))) {
+                truncateVector(target, target_old_len);
+                ;
+                return 5;
+            }
+            target->ptrs[i] = temp_obj;
+        }
+
+        ;
+        return 0;
+
+    } else {
+        if(growVectorPointers(target, target->len + 1)) {
+            ;
+            return 6;
+        }
+        void* temp_obj = 
+# 207 "./src/./types/vector.h" 3 4
+                        ((void *)0)
+# 207 "./src/./types/vector.h"
+                            ;
+        if(!(temp_obj = duplicate(adding))) {
+            truncateVector(target, target_old_len);
+            ;
+            return 7;
+        }
+        target->ptrs[target->len - 1] = temp_obj;
+
+        ;
+        return 0;
+    }
+}
+
+int
+moveToVectorEnd(vec* target, void* eating) {
+
+    if( eating == 
+# 223 "./src/./types/vector.h" 3 4
+                 ((void *)0) 
+# 223 "./src/./types/vector.h"
+                      ||
+        target == 
+# 224 "./src/./types/vector.h" 3 4
+                 ((void *)0)
+# 224 "./src/./types/vector.h"
+                     ) {
+            ;
+            return 1;
+    }
+
+    if(*(int *)eating == 5) {
+        vec* adding_cast = (vec*) eating;
+        if(
+# 231 "./src/./types/vector.h" 3 4
+          (18446744073709551615UL) 
+# 231 "./src/./types/vector.h"
+          - 1 - target->len < adding_cast->len) {
+            ;
+            return 4;
+        }
+        if(growVectorPointers(target, target->len + adding_cast->len)) {
+            ;
+            return 5;
+        }
+        for(size_t adding_it = 0, i = target->len - adding_cast->len; i < target->len; adding_it++, i++) {
+            target->ptrs[i] = adding_cast->ptrs[adding_it];
+        }
+    } else {
+        if(growVectorPointers(target, target->len + 1)) {
+            ;
+            return 7;
+        }
+        target->ptrs[target->len - 1] = eating;
+    }
+
+    ;
+    return 0;
+}
+
+int
+mergeVectorsAt(vec* target, vec* adding, size_t pos) {
+
+    size_t target_old_len = target->len;
+
+    if(growVectorPointers(target, target->len + adding->len)) {
+        ;
+        return 6;
+    }
+    if(pos == target->len) {
+        ;
+        return appendToVector(target, adding);
+    }
+
+    for(size_t i = pos; i < target_old_len; i++) {
+        target->ptrs[i + adding->len] = target->ptrs[i];
+    }
+
+    for(size_t adding_it = 0, i = pos; adding_it < adding->len; adding_it++, i++) {
+        void* temp_obj = duplicate(adding->ptrs[adding_it]);
+        if(!temp_obj) {
+            truncateVector(target, target_old_len);
+            ;
+            return 7;
+        }
+        target->ptrs[i] = temp_obj;
+    }
+
+    ;
+    return 0;
+}
+
+int
+addToVectorAt(vec* target, void* obj_in, size_t pos) {
+
+    if( obj_in == 
+# 289 "./src/./types/vector.h" 3 4
+                 ((void *)0) 
+# 289 "./src/./types/vector.h"
+                      ||
+        target == 
+# 290 "./src/./types/vector.h" 3 4
+                 ((void *)0)
+# 290 "./src/./types/vector.h"
+                     ) {
+            ;
+            return 1;
+    }
+
+    size_t target_old_len = target->len;
+
+    if(pos > target->len || pos == 
+# 297 "./src/./types/vector.h" 3 4
+                                  (18446744073709551615UL)
+# 297 "./src/./types/vector.h"
+                                         ) {
+        ;
+        return 4;
+    }
+
+    if(*(int *)obj_in == 5 && pos == target->len) {
+        if(appendToVector(target, obj_in)) {
+            ;
+            return 5;
+        } else {
+            ;
+            return 0;
+        }
+
+    } else {
+        if(growVectorPointers(target, target->len + 1)) {
+            ;
+            return 6;
+        }
+        for(size_t i = target->len - 1; i > pos; i--) {
+            target->ptrs[i] = target->ptrs[i - 1];
+        }
+
+        void* temp_obj = 
+# 320 "./src/./types/vector.h" 3 4
+                        ((void *)0)
+# 320 "./src/./types/vector.h"
+                            ;
+        if(!(temp_obj = duplicate(obj_in))) {
+            truncateVector(target, target_old_len);
+            ;
+            return 7;
+        }
+        target->ptrs[pos] = temp_obj;
+
+        ;
+        return 0;
+    }
+}
+
+vec*
+duplicateVector(vec* vec_in) {
+
+    if(vec_in == 
+# 336 "./src/./types/vector.h" 3 4
+                ((void *)0)
+# 336 "./src/./types/vector.h"
+                    ) {
+        ;
+        return 
+# 338 "./src/./types/vector.h" 3 4
+              ((void *)0)
+# 338 "./src/./types/vector.h"
+                  ;
+    }
+
+    vec* vec_out = 
+# 341 "./src/./types/vector.h" 3 4
+                  ((void *)0)
+# 341 "./src/./types/vector.h"
+                      ;
+    if(!(vec_out = malloc(sizeof(vec)))) {
+        ;
+        return 
+# 344 "./src/./types/vector.h" 3 4
+              ((void *)0)
+# 344 "./src/./types/vector.h"
+                  ;
+    }
+    vec_out->type = 5;
+    vec_out->len = vec_in->len;
+
+    if(!(vec_out->ptrs = malloc(vec_in->len * sizeof(void *)))) {
+        free(vec_out);
+        throwFatal(__func__, "Allocate failed for: vec_out->ptrs (malloc)");
+    }
+
+    for(size_t i = 0; i < vec_in->len; i++) {
+        if(!(vec_out->ptrs[i] = duplicate(vec_in->ptrs[i]))) {
+            ;
+            for(size_t j = 0; j < i; j++) {
+                destroy(vec_out->ptrs[j]);
+            }
+            free(vec_out->ptrs);
+            free(vec_out);
+            return 
+# 362 "./src/./types/vector.h" 3 4
+                  ((void *)0)
+# 362 "./src/./types/vector.h"
+                      ;
+        }
+    }
+
+    ;
+    return vec_out;
+}
+# 14 "./src/mara.h" 2
+# 1 "./src/./types/hash.h" 1
+
+
+
+
+
+int
+destroyKeyValuePair(kvp* kvp_in) {
+
+    if(kvp_in == 
+# 9 "./src/./types/hash.h" 3 4
+                ((void *)0)
+# 9 "./src/./types/hash.h"
+                    ) {
+        ;
+        return 1;
+    }
+
+    if(kvp_in->key == 
+# 14 "./src/./types/hash.h" 3 4
+                     ((void *)0)
+# 14 "./src/./types/hash.h"
+                         ) {
+        ;
+    } else {
+        free(kvp_in->key);
+    }
+    destroy(kvp_in->value);
+    free(kvp_in);
+
+    ;
+    return 0;
+}
+
+kvp*
+duplicateKeyValuePair(kvp* kvp_in) {
+
+    if(kvp_in == 
+# 29 "./src/./types/hash.h" 3 4
+                ((void *)0)
+# 29 "./src/./types/hash.h"
+                    ) {
+        ;
+        return 
+# 31 "./src/./types/hash.h" 3 4
+              ((void *)0)
+# 31 "./src/./types/hash.h"
+                  ;
+    }
+
+    kvp* kvp_out = 
+# 34 "./src/./types/hash.h" 3 4
+                  ((void *)0)
+# 34 "./src/./types/hash.h"
+                      ;
+    if(!(kvp_out = malloc(sizeof(kvp)))) {
+        throwFatal(__func__, "Allocate failed for: kvp_out (malloc)");
+    }
+    if(!(kvp_out->key = seqDupl(kvp_in->key))) {
+        ;
+        free(kvp_out);
+        return 
+# 41 "./src/./types/hash.h" 3 4
+              ((void *)0)
+# 41 "./src/./types/hash.h"
+                  ;
+    }
+    if(!(kvp_out->value = duplicate(kvp_in->value))) {
+        ;
+        free(kvp_out->key);
+        free(kvp_out);
+        return 
+# 47 "./src/./types/hash.h" 3 4
+              ((void *)0)
+# 47 "./src/./types/hash.h"
+                  ;
+    }
+    ;
+    return kvp_out;
+}
+
+hsh*
+hashInit() {
+
+    hsh* output_hash = 
+# 56 "./src/./types/hash.h" 3 4
+                      ((void *)0)
+# 56 "./src/./types/hash.h"
+                          ;
+    if(!(output_hash = malloc(sizeof(hsh)))) {
+        throwFatal(__func__, "Allocate failed for: output_hash (malloc)");
+    }
+
+    output_hash->type = 4;
+    output_hash->len = 0;
+    output_hash->kvptrs = 
+# 63 "./src/./types/hash.h" 3 4
+                         ((void *)0)
+# 63 "./src/./types/hash.h"
+                             ;
+
+    ;
+    return output_hash;
+}
+
+void*
+accessHashValue(hsh* hash_in, const char* key_access) {
+
+    if( hash_in == 
+# 72 "./src/./types/hash.h" 3 4
+                  ((void *)0) 
+# 72 "./src/./types/hash.h"
+                       ||
+        key_access == 
+# 73 "./src/./types/hash.h" 3 4
+                     ((void *)0)
+# 73 "./src/./types/hash.h"
+                         ) {
+            ;
+            return 
+# 75 "./src/./types/hash.h" 3 4
+                  ((void *)0)
+# 75 "./src/./types/hash.h"
+                      ;
+    }
+    if(hash_in->len == 0) {
+        return 
+# 78 "./src/./types/hash.h" 3 4
+              ((void *)0)
+# 78 "./src/./types/hash.h"
+                  ;
+    }
+
+    size_t get_loc = 
+# 81 "./src/./types/hash.h" 3 4
+                    (18446744073709551615UL)
+# 81 "./src/./types/hash.h"
+                           ;
+    for(size_t i = 0; i < hash_in->len; i++) {
+        if(seqSame(hash_in->kvptrs[i]->key, key_access)) {
+            get_loc = i;
+            break;
+        }
+    }
+    if(get_loc == 
+# 88 "./src/./types/hash.h" 3 4
+                 (18446744073709551615UL)
+# 88 "./src/./types/hash.h"
+                        ) {
+        ;
+        return 
+# 90 "./src/./types/hash.h" 3 4
+              ((void *)0)
+# 90 "./src/./types/hash.h"
+                  ;
+    }
+
+    ;
+    return hash_in->kvptrs[get_loc]->value;
+}
+
+kvp*
+accessHashPair(hsh* hash_in, const char* key_access) {
+
+    if( hash_in == 
+# 100 "./src/./types/hash.h" 3 4
+                  ((void *)0) 
+# 100 "./src/./types/hash.h"
+                       ||
+        key_access == 
+# 101 "./src/./types/hash.h" 3 4
+                     ((void *)0)
+# 101 "./src/./types/hash.h"
+                         ) {
+            ;
+            return 
+# 103 "./src/./types/hash.h" 3 4
+                  ((void *)0)
+# 103 "./src/./types/hash.h"
+                      ;
+    }
+    if(hash_in->len == 0) {
+        return 
+# 106 "./src/./types/hash.h" 3 4
+              ((void *)0)
+# 106 "./src/./types/hash.h"
+                  ;
+    }
+
+    for(size_t i = 0; i < hash_in->len; i++) {
+        if(seqSame(key_access, hash_in->kvptrs[i]->key)) {
+            ;
+            return hash_in->kvptrs[i];
+        }
+    }
+
+    ;
+    return 
+# 117 "./src/./types/hash.h" 3 4
+          ((void *)0)
+# 117 "./src/./types/hash.h"
+              ;
+}
+
+int
+changeKey(hsh* hash_in, const char* key_current, const char* key_new) {
+
+    if( hash_in == 
+# 123 "./src/./types/hash.h" 3 4
+                  ((void *)0) 
+# 123 "./src/./types/hash.h"
+                       ||
+        key_current == 
+# 124 "./src/./types/hash.h" 3 4
+                      ((void *)0) 
+# 124 "./src/./types/hash.h"
+                           ||
+        key_new == 
+# 125 "./src/./types/hash.h" 3 4
+                  ((void *)0)
+# 125 "./src/./types/hash.h"
+                      ) {
+            ;
+            return 1;
+    }
+
+    kvp* working_kvp = 
+# 130 "./src/./types/hash.h" 3 4
+                      ((void *)0)
+# 130 "./src/./types/hash.h"
+                          ;
+    char* temp_key = 
+# 131 "./src/./types/hash.h" 3 4
+                    ((void *)0)
+# 131 "./src/./types/hash.h"
+                        ;
+
+    if(!(working_kvp = accessHashPair(hash_in, key_current))) {
+        ;
+        return 2;
+    }
+
+    if(!(temp_key = seqDupl(key_new))) {
+        throwFatal(__func__, "Allocate failed for temp_key (seqDupl)");
+        return 3;
+    }
+    free(working_kvp->key);
+    working_kvp->key = temp_key;
+    return 0;
+}
+
+int
+addKeyToHash(hsh* hash_in, const char* key_in, void* value_in) {
+
+    if( hash_in == 
+# 150 "./src/./types/hash.h" 3 4
+                  ((void *)0) 
+# 150 "./src/./types/hash.h"
+                       ||
+        key_in == 
+# 151 "./src/./types/hash.h" 3 4
+                 ((void *)0) 
+# 151 "./src/./types/hash.h"
+                      ||
+        value_in == 
+# 152 "./src/./types/hash.h" 3 4
+                   ((void *)0)
+# 152 "./src/./types/hash.h"
+                       ) {
+            ;
+            return 1;
+    }
+    for(size_t i = 0; i < hash_in->len; i++) {
+        if(seqSame(hash_in->kvptrs[i]->key, key_in)) {
+            ;
+            return 3;
+        }
+    }
+
+    kvp* new_kvp = 
+# 163 "./src/./types/hash.h" 3 4
+                  ((void *)0)
+# 163 "./src/./types/hash.h"
+                      ;
+    if(!(new_kvp = malloc(sizeof(kvp)))) {
+        throwFatal(__func__, "Allocate failed for: new_kvp (malloc)");
+    }
+
+    size_t key_length = seqLen(key_in);
+    if(!key_length) {
+        ;
+        free(new_kvp);
+        return 5;
+    }
+    if(!(new_kvp->key = malloc(key_length + 1))) {
+        free(new_kvp);
+        throwFatal(__func__, "Allocate failed for: new_kvp->key (malloc)");
+    }
+    if(!(new_kvp->value = duplicate(value_in))) {
+        ;
+        free(new_kvp->key);
+        free(new_kvp);
+        return 7;
+    }
+
+    for(size_t i = 0; i < key_length; i++) {
+        new_kvp->key[i] = key_in[i];
+    }
+    new_kvp->key[key_length] = '\0';
+
+    if(hash_in->len == 0) {
+        if(!(hash_in->kvptrs = malloc(sizeof(kvp**)))) {
+            destroyKeyValuePair(new_kvp);
+            throwFatal(__func__, "Allocate failed for: hash_in->kvptrs (malloc)");
+        }
+        hash_in->kvptrs[0] = new_kvp;
+    } else {
+        kvp** temp_kvps = 
+# 197 "./src/./types/hash.h" 3 4
+                         ((void *)0)
+# 197 "./src/./types/hash.h"
+                             ;
+        if(!(temp_kvps = realloc(hash_in->kvptrs, (hash_in->len + 1) * sizeof(kvp**)))) {
+            destroyKeyValuePair(new_kvp);
+            throwFatal(__func__, "Allocate failed for: temp_kvps (realloc)");
+        }
+        temp_kvps[hash_in->len] = new_kvp;
+        hash_in->kvptrs = temp_kvps;
+    }
+    hash_in->len++;
+
+    ;
+    return 0;
+}
+
+int
+moveKeyToHash(hsh* hash_in, const char* key_in, void* eating) {
+
+    if( !hash_in ||
+        !key_in ||
+        !eating) {
+            ;
+            return 1;
+    }
+    for(size_t i = 0; i < hash_in->len; i++) {
+        if(seqSame(key_in, hash_in->kvptrs[i]->key)) {
+            ;
+            return 3;
+        }
+    }
+
+    kvp* new_kvp = 
+# 227 "./src/./types/hash.h" 3 4
+                  ((void *)0)
+# 227 "./src/./types/hash.h"
+                      ;
+    if(!(new_kvp = malloc(sizeof(kvp)))) {
+        ;
+        return 4;
+    }
+
+    size_t key_length = seqLen(key_in);
+    if(key_length == 0) {
+        ;
+        free(new_kvp);
+        return 5;
+    }
+    if(!(new_kvp->key = seqDupl(key_in))) {
+        ;
+        free(new_kvp);
+        return 6;
+    }
+    new_kvp->value = eating;
+
+    if(hash_in->len == 0) {
+        if(!(hash_in->kvptrs = malloc(sizeof(kvp**)))) {
+            destroyKeyValuePair(new_kvp);
+            throwFatal(__func__, "Allocate failed for: hash_in_cast->kvptrs (malloc)");
+        }
+        hash_in->kvptrs[0] = new_kvp;
+    } else {
+        kvp** temp_kvps = 
+# 253 "./src/./types/hash.h" 3 4
+                         ((void *)0)
+# 253 "./src/./types/hash.h"
+                             ;
+        if(!(temp_kvps = realloc(hash_in->kvptrs, (hash_in->len + 1) * sizeof(kvp**)))) {
+            destroyKeyValuePair(new_kvp);
+            throwFatal(__func__, "Allocate failed for: temp_kvps (realloc)");
+        }
+        temp_kvps[hash_in->len] = new_kvp;
+        hash_in->kvptrs = temp_kvps;
+    }
+    hash_in->len++;
+
+    ;
+    return 0;
+}
+
+int
+removeFromHash(hsh* hash_in, const char* key_delete) {
+
+    if( hash_in == 
+# 270 "./src/./types/hash.h" 3 4
+                  ((void *)0)
+# 270 "./src/./types/hash.h"
+                      ||
+        key_delete == 
+# 271 "./src/./types/hash.h" 3 4
+                     ((void *)0)
+# 271 "./src/./types/hash.h"
+                         ) {
+            ;
+            return 1;
+    }
+    if(hash_in->len == 0) {
+        ;
+        return 2;
+    }
+
+    size_t del_location = 
+# 280 "./src/./types/hash.h" 3 4
+                         (18446744073709551615UL)
+# 280 "./src/./types/hash.h"
+                                ;
+    for(size_t i = 0; i < hash_in->len; i++) {
+        if(seqSame(key_delete, hash_in->kvptrs[i]->key)) {
+            destroyKeyValuePair(hash_in->kvptrs[i]);
+            del_location = i;
+            break;
+        }
+    }
+    if(del_location == 
+# 288 "./src/./types/hash.h" 3 4
+                      (18446744073709551615UL)
+# 288 "./src/./types/hash.h"
+                             ) {
+        ;
+        return 3;
+    }
+
+    if(hash_in->len == 1) {
+        free(hash_in->kvptrs);
+        hash_in->len = 0;
+        return 4;
+    }
+    if(del_location < hash_in->len - 1) {
+        for(size_t i = del_location; i < hash_in->len - 1; i++) {
+            hash_in->kvptrs[i] = hash_in->kvptrs[i + 1];
+        }
+    }
+
+    kvp** temp_kvps = 
+# 304 "./src/./types/hash.h" 3 4
+                     ((void *)0)
+# 304 "./src/./types/hash.h"
+                         ;
+    if(!(temp_kvps = realloc(hash_in->kvptrs, (hash_in->len - 1) * sizeof(kvp**)))) {
+        throwFatal(__func__, "Allocate failed for: temp_kvps (realloc)");
+    }
+    hash_in->kvptrs = temp_kvps;
+    hash_in->len--;
+
+    ;
+    return 0;
+}
+
+int
+destroyHash(hsh* hash_in) {
+
+    if(hash_in == 
+# 318 "./src/./types/hash.h" 3 4
+                 ((void *)0)
+# 318 "./src/./types/hash.h"
+                     ) {
+        ;
+        return 1;
+    }
+
+    if(hash_in->len == 0) {
+        free(hash_in);
+        ;
+        return 0;
+    }
+
+    for(size_t i = 0; i < hash_in->len; i++) {
+        destroyKeyValuePair(hash_in->kvptrs[i]);
+    }
+    free(hash_in->kvptrs);
+    free(hash_in);
+
+    ;
+    return 0;
+}
+
+hsh*
+duplicateHash(hsh* hash_in) {
+
+    if(hash_in == 
+# 342 "./src/./types/hash.h" 3 4
+                 ((void *)0)
+# 342 "./src/./types/hash.h"
+                     ) {
+        ;
+        return 
+# 344 "./src/./types/hash.h" 3 4
+              ((void *)0)
+# 344 "./src/./types/hash.h"
+                  ;
+    }
+
+    hsh* hash_out = 
+# 347 "./src/./types/hash.h" 3 4
+                   ((void *)0)
+# 347 "./src/./types/hash.h"
+                       ;
+    if(!(hash_out = hashInit())) {
+        ;
+        return 
+# 350 "./src/./types/hash.h" 3 4
+              ((void *)0)
+# 350 "./src/./types/hash.h"
+                  ;
+    }
+    if(!(hash_out->kvptrs = malloc(hash_in->len * sizeof(kvp**)))) {
+        free(hash_out);
+        throwFatal(__func__, "Allocate failed for: hash_out->kvptrs (malloc)");
+    }
+
+    for(size_t i = 0; i < hash_in->len; i++) {
+        if(!(hash_out->kvptrs[i] = duplicateKeyValuePair(hash_in->kvptrs[i]))) {
+            for(size_t j = 0; j < i; j++) {
+                ;
+                destroyKeyValuePair(hash_out->kvptrs[i]);
+            }
+            destroyHash(hash_out);
+            return 
+# 364 "./src/./types/hash.h" 3 4
+                  ((void *)0)
+# 364 "./src/./types/hash.h"
+                      ;
+        }
+    }
+    hash_out->len = hash_in->len;
+
+    ;
+    return hash_out;
+}
+# 15 "./src/mara.h" 2
+# 1 "./src/./types/matrix.h" 1
+
+
+
+
+
+mat*
+matrixInit(int data_type_in, size_t rows, size_t columns, const char* options) {
+
+ if( data_type_in == 0 ||
+  rows == 0 ||
+  columns == 0) {
+   ;
+   return 
+# 13 "./src/./types/matrix.h" 3 4
+         ((void *)0)
+# 13 "./src/./types/matrix.h"
+             ;
+ }
+
+ if(data_type_in == 3) {
+  if(rows * (columns / 1024.) > 131072) {
+   ;
+   return 
+# 19 "./src/./types/matrix.h" 3 4
+         ((void *)0)
+# 19 "./src/./types/matrix.h"
+             ;
+  }
+ } else {
+  if(rows * (columns / 1024.) > 262144) {
+   ;
+   return 
+# 24 "./src/./types/matrix.h" 3 4
+         ((void *)0)
+# 24 "./src/./types/matrix.h"
+             ;
+  }
+ }
+
+ mat* output_mat = 
+# 28 "./src/./types/matrix.h" 3 4
+                  ((void *)0)
+# 28 "./src/./types/matrix.h"
+                      ;
+ if(!(output_mat = malloc(sizeof(mat)))) {
+  throwFatal(__func__, "Allocate failed for: output_mat (malloc)");
+ }
+ output_mat->type = 7;
+ output_mat->datatype = data_type_in;
+ output_mat->m = rows;
+ output_mat->n = columns;
+
+ switch(data_type_in) {
+
+  case 2: {
+   if(!(output_mat->data = calloc(rows * columns, sizeof(int32_t)))) {
+    free(output_mat);
+    throwFatal(__func__, "Allocate failed for: output_mat->data (malloc)");
+   }
+   if(seqSame(options, "unit")) {
+    for(size_t i = 0; i < rows * columns; i++) {
+     ((int32_t *)output_mat->data)[i] = 1;
+    }
+   }
+   break;
+  }
+
+  case 3: {
+   if(!(output_mat->data = calloc(rows * columns, sizeof(double)))) {
+    free(output_mat);
+    throwFatal(__func__, "Allocate failed for: output_mat->data (malloc)");
+   }
+   if(seqSame(options, "unit")) {
+    for(size_t i = 0; i < rows * columns; i++) {
+     ((double *)output_mat->data)[i] = 1;
+    }
+   }
+   break;
+  }
+  default: {
+   ;
+   free(output_mat);
+   return 
+# 67 "./src/./types/matrix.h" 3 4
+         ((void *)0)
+# 67 "./src/./types/matrix.h"
+             ;
+  }
+ }
+ ;
+ return output_mat;
+}
+
+int
+destroyMatrix(mat* mat_in) {
+
+ if(mat_in == 
+# 77 "./src/./types/matrix.h" 3 4
+             ((void *)0)
+# 77 "./src/./types/matrix.h"
+                 ) {
+  ;
+  return 1;
+ }
+
+ if(mat_in->data) {
+  free(mat_in->data);
+ }
+ free(mat_in);
+
+ ;
+ return 0;
+}
+
+mat*
+duplicateMatrix(mat* mat_in) {
+
+ if(mat_in == 
+# 94 "./src/./types/matrix.h" 3 4
+             ((void *)0)
+# 94 "./src/./types/matrix.h"
+                 ) {
+  ;
+  return 
+# 96 "./src/./types/matrix.h" 3 4
+        ((void *)0)
+# 96 "./src/./types/matrix.h"
+            ;
+ }
+ if(mat_in->data == 
+# 98 "./src/./types/matrix.h" 3 4
+                   ((void *)0)
+# 98 "./src/./types/matrix.h"
+                       ) {
+  ;
+  return 
+# 100 "./src/./types/matrix.h" 3 4
+        ((void *)0)
+# 100 "./src/./types/matrix.h"
+            ;
+ }
+
+ mat* mat_out = 
+# 103 "./src/./types/matrix.h" 3 4
+               ((void *)0)
+# 103 "./src/./types/matrix.h"
+                   ;
+ if(!(mat_out = matrixInit(mat_in->datatype, mat_in->m, mat_in->n, 
+# 104 "./src/./types/matrix.h" 3 4
+                                                                  ((void *)0)
+# 104 "./src/./types/matrix.h"
+                                                                      ))) {
+  ;
+  return 
+# 106 "./src/./types/matrix.h" 3 4
+        ((void *)0)
+# 106 "./src/./types/matrix.h"
+            ;
+ }
+
+ size_t total_data_len = mat_out->m * mat_out->n;
+
+ switch(mat_out->datatype) {
+
+  case 2: {
+   for(size_t i = 0; i < total_data_len; i++) {
+    ((int *)mat_out->data)[i] = ((int *)mat_in->data)[i];
+   }
+   break;
+  }
+
+  case 3: {
+   for(size_t i = 0; i < total_data_len; i++) {
+    ((double *)mat_out->data)[i] = ((double *)mat_in->data)[i];
+   }
+   break;
+  }
+ }
+
+ ;
+ return mat_out;
+}
+# 16 "./src/mara.h" 2
+
+# 1 "./src/./types/generic.h" 1
+
+
+
+
+
+
+
+int
+destroy(void* obj_in) {
+
+    switch(*(int *)obj_in) {
+
+        case 1: {
+            destroyString(obj_in);
+            break;
+        }
+        case 2: {
+            free(obj_in);
+            break;
+        }
+        case 3: {
+            free(obj_in);
+            break;
+        }
+        case 4: {
+            destroyHash(obj_in);
+            break;
+        }
+        case 5: {
+            destroyVector(obj_in);
+            break;
+        }
+        case 7: {
+            destroyMatrix(obj_in);
+            break;
+        }
+        default: {
+            ;
+        }
+    }
+
+    ;
+    return 0;
+}
+
+int
+destroyV(uint32_t n, ...) {
+
+    va_list obj_args;
+    
+# 50 "./src/./types/generic.h" 3 4
+   __builtin_va_start(
+# 50 "./src/./types/generic.h"
+   obj_args
+# 50 "./src/./types/generic.h" 3 4
+   ,
+# 50 "./src/./types/generic.h"
+   n
+# 50 "./src/./types/generic.h" 3 4
+   )
+# 50 "./src/./types/generic.h"
+                        ;
+    void* current_obj = 
+# 51 "./src/./types/generic.h" 3 4
+                       ((void *)0)
+# 51 "./src/./types/generic.h"
+                           ;
+
+    for(uint32_t i = 0; i < n; i++) {
+        current_obj = 
+# 54 "./src/./types/generic.h" 3 4
+                     __builtin_va_arg(
+# 54 "./src/./types/generic.h"
+                     obj_args
+# 54 "./src/./types/generic.h" 3 4
+                     ,
+# 54 "./src/./types/generic.h"
+                     void *
+# 54 "./src/./types/generic.h" 3 4
+                     )
+# 54 "./src/./types/generic.h"
+                                             ;
+        destroy(current_obj);
+    }
+
+    return 0;
+}
+
+void*
+duplicate(void* obj_in) {
+
+    void* obj_out = 
+# 64 "./src/./types/generic.h" 3 4
+                   ((void *)0)
+# 64 "./src/./types/generic.h"
+                       ;
+
+    switch(*(int *)obj_in) {
+
+        case 1: {
+            obj_out = duplicateString(obj_in);
+            break;
+        }
+        case 2: {
+            obj_out = duplicateInteger(obj_in);
+            break;
+        }
+        case 3: {
+            obj_out = duplicateFloat(obj_in);
+            break;
+        }
+        case 4: {
+            obj_out = duplicateHash(obj_in);
+            break;
+        }
+        case 5: {
+            obj_out = duplicateVector(obj_in);
+            break;
+        }
+        case 7: {
+            obj_out = duplicateMatrix(obj_in);
+            break;
+        }
+    }
+
+    ;
+    return obj_out;
+}
+
+size_t
+printedLength(void* obj_in, size_t nested_level, 
+# 99 "./src/./types/generic.h" 3 4
+                                                _Bool 
+# 99 "./src/./types/generic.h"
+                                                     oneline) {
+
+    char* num_char_buf = 
+# 101 "./src/./types/generic.h" 3 4
+                        ((void *)0)
+# 101 "./src/./types/generic.h"
+                            ;
+    int spf_ret = 0;
+    size_t output_count = 0;
+
+    switch(*(int *)obj_in) {
+
+        case 1: {
+            output_count += ((str*)obj_in)->len + 2;
+            break;
+        }
+        case 2: {
+            if(!(num_char_buf = calloc(128, sizeof(char)))) {
+                return 32;
+            }
+            spf_ret = sprintf(num_char_buf, "%ld", ((itr*)obj_in)->val);
+            if(spf_ret < 0) {
+                return 0;
+            } else {
+                output_count += spf_ret;
+            }
+            break;
+        }
+
+        case 3: {
+            if( !(num_char_buf = calloc(128, sizeof(char))) ) {
+                return 128;
+            }
+            if( ((flt*)obj_in)->val < 0.001 && ((flt*)obj_in)->fracdigs < 20 ) {
+
+                spf_ret = sprintf(num_char_buf, "%e", ((flt*)obj_in)->val);
+                char* e_loc = seqChar(num_char_buf, 'e', 128);
+                int exponent = strtol(e_loc + 2, 
+# 132 "./src/./types/generic.h" 3 4
+                                                ((void *)0)
+# 132 "./src/./types/generic.h"
+                                                    , 10);
+                char* decimal_loc = seqChar(num_char_buf, '.', 128);
+                char* char_it = 
+# 134 "./src/./types/generic.h" 3 4
+                               ((void *)0)
+# 134 "./src/./types/generic.h"
+                                   ;
+                size_t extra_chars = 0;
+
+                if(*(e_loc + 1) == '-') {
+                    char_it = e_loc + 2;
+                } else {
+                    char_it = e_loc + 1;
+                }
+                while(*char_it == '0') {
+                    extra_chars++;
+                    char_it++;
+                }
+                char_it = decimal_loc + (size_t)(((flt*)obj_in)->fracdigs - exponent);
+                while(*(char_it + 1) != 'e') {
+                    extra_chars++;
+                    char_it++;
+                }
+                spf_ret -= extra_chars;
+            } else {
+                spf_ret = sprintf(num_char_buf, "%.*f", ((flt*)obj_in)->fracdigs, ((flt*)obj_in)->val);
+            }
+            if(spf_ret < 0) {
+                return 0;
+            } else {
+                output_count += spf_ret;
+                if(((flt*)obj_in)->fracdigs == 0) {
+                    output_count++;
+                }
+            }
+            break;
+        }
+
+        case 4: {
+            if(((hsh*)obj_in)->len == 0) {
+                return 9;
+            }
+            output_count++;
+            for(size_t i = 0; i < ((hsh*)obj_in)->len; i++) {
+                kvp* kvp_cast = (kvp*) ((hsh*)obj_in)->kvptrs[i];
+                if(!oneline) {
+                    output_count += 3;
+                } else {
+                    output_count++;
+                }
+                if(nested_level > 0 && !oneline) {
+                    output_count += 2 * (nested_level);
+                }
+                output_count += seqLen(kvp_cast->key);
+                output_count += 4;
+                output_count += printedLength(kvp_cast->value, nested_level + 1, oneline);
+            }
+            if(nested_level > 0 && !oneline) {
+                for(size_t i = 0; i < nested_level; i++) {
+                    output_count += 2;
+                }
+            } else {
+                output_count++;
+            }
+            output_count++;
+            break;
+        }
+
+        case 5: {
+            if(!((vec*)obj_in)->ptrs) {
+                return 0;
+            }
+            output_count += 2;
+            for(size_t i = 0; i < ((vec*)obj_in)->len; i++) {
+                output_count += printedLength(((vec*)obj_in)->ptrs[i], 
+# 202 "./src/./types/generic.h" 3 4
+                                                                      0
+# 202 "./src/./types/generic.h"
+                                                                           , 
+# 202 "./src/./types/generic.h" 3 4
+                                                                             1
+# 202 "./src/./types/generic.h"
+                                                                                 );
+                output_count += 2;
+            }
+            break;
+        }
+
+        default: {
+            ;
+        }
+    }
+    if(num_char_buf) {
+        free(num_char_buf);
+    }
+    return output_count;
+}
+
+char*
+objectAsChars(void* obj_in, size_t nested_level, 
+# 219 "./src/./types/generic.h" 3 4
+                                                _Bool 
+# 219 "./src/./types/generic.h"
+                                                     oneline) {
+
+    size_t output_seq_size = printedLength(obj_in, nested_level, oneline);
+
+    if(output_seq_size == 0) {
+        ;
+        return 
+# 225 "./src/./types/generic.h" 3 4
+              ((void *)0)
+# 225 "./src/./types/generic.h"
+                  ;
+    }
+    char* output_seq = 
+# 227 "./src/./types/generic.h" 3 4
+                      ((void *)0)
+# 227 "./src/./types/generic.h"
+                          ;
+    if(!(output_seq = calloc(output_seq_size + 1, sizeof(char)))) {
+        throwFatal(__func__, "Allocate failed for: output_seq (calloc)");
+    }
+    char* write_tracker = output_seq;
+    char* nested_obj_seq = 
+# 232 "./src/./types/generic.h" 3 4
+                          ((void *)0)
+# 232 "./src/./types/generic.h"
+                              ;
+    int spr_ret = 0;
+
+    switch(*(int *)obj_in) {
+
+        case 1: {
+            if(!((str*)obj_in)->seq) {
+                ;
+                free(output_seq);
+                return 
+# 241 "./src/./types/generic.h" 3 4
+                      ((void *)0)
+# 241 "./src/./types/generic.h"
+                          ;
+            }
+            *write_tracker = '\"';
+            write_tracker++;
+            if(((str*)obj_in)->len > 0) {
+                spr_ret = sprintf(write_tracker, "%s", ((str*)obj_in)->seq);
+                if(spr_ret > 0) {
+                    write_tracker += spr_ret;
+                }
+            }
+            *write_tracker = '\"';
+            break;
+        }
+        case 2: {
+            spr_ret = sprintf(output_seq, "%ld", ((itr*)obj_in)->val);
+            break;
+        }
+
+        case 3: {
+
+            if( ((flt*)obj_in)->val < 0.001) {
+                char* num_char_buf = 
+# 262 "./src/./types/generic.h" 3 4
+                                    ((void *)0)
+# 262 "./src/./types/generic.h"
+                                        ;
+                if(!(num_char_buf = calloc(128, sizeof(char)))) {
+                    free(output_seq);
+                    throwFatal(__func__, "Allocate failed for: num_char_buf (calloc)");
+                }
+                spr_ret = sprintf(num_char_buf, "%e", ((flt*)obj_in)->val);
+                char* e_loc = seqChar(num_char_buf, 'e', 128);
+                char* char_it = e_loc + 2;
+                int exponent = strtol(char_it, 
+# 270 "./src/./types/generic.h" 3 4
+                                              ((void *)0)
+# 270 "./src/./types/generic.h"
+                                                  , 10);
+                sprintf(char_it, "%d", exponent);
+                char_it = seqChar(num_char_buf, '.', 128) + (size_t)(((flt*)obj_in)->fracdigs - exponent) + 1;
+                size_t remaining_extra_chars = e_loc - char_it;
+
+                while(*(char_it + remaining_extra_chars) != '\0') {
+                    *char_it = *(char_it + remaining_extra_chars);
+                    char_it++;
+                }
+                sprintf(output_seq, "%s", num_char_buf);
+                free(num_char_buf);
+            } else {
+                spr_ret = sprintf(output_seq, "%.*f", ((flt*)obj_in)->fracdigs, ((flt*)obj_in)->val);
+                if(spr_ret > 0) {
+                    if(((flt*)obj_in)->fracdigs == 0) {
+                        sprintf(output_seq + (size_t)spr_ret, ".");
+                    }
+                }
+            }
+            break;
+        }
+
+        case 4: {
+
+            if(((hsh*)obj_in)->len == 0) {
+                sprintf(write_tracker, "%s", "{ EMPTY }");
+                break;
+            }
+
+            *write_tracker = '{';
+            write_tracker++;
+
+            for(size_t i = 0; i < ((hsh*)obj_in)->len; i++) {
+
+                if(!oneline) {
+                    sprintf(write_tracker, "%s", "\n  ");
+                    write_tracker += 3;
+                } else {
+                    sprintf(write_tracker, "%s", " ");
+                    write_tracker++;
+                }
+
+                if(nested_level > 0 && !oneline) {
+                    for(size_t i = 0; i < nested_level; i++) {
+                        sprintf(write_tracker, "%s", "  ");
+                        write_tracker += 2;
+                    }
+                }
+
+                spr_ret = sprintf(write_tracker, "%s", ((hsh*)obj_in)->kvptrs[i]->key);
+
+                if(spr_ret > 0) {
+                    write_tracker += spr_ret;
+                } else {
+                    write_tracker++;
+                }
+
+                sprintf(write_tracker, "%s", " : ");
+                write_tracker += 3;
+
+                if((nested_obj_seq = objectAsChars(((hsh*)obj_in)->kvptrs[i]->value, nested_level + 1, oneline))) {
+                    spr_ret = sprintf(write_tracker, "%s", nested_obj_seq);
+                    free(nested_obj_seq);
+                } else {
+                    ;
+                    spr_ret = sprintf(write_tracker, "%s", "");
+                }
+                write_tracker += spr_ret;
+                *write_tracker = ',';
+                write_tracker++;
+            }
+
+            if(!oneline) {
+                if(nested_level > 0) {
+                    write_tracker -= 1;
+                    *write_tracker = '\n';
+                    write_tracker++;
+                    for(size_t i = 0; i < nested_level; i++) {
+                        *write_tracker = ' ';
+                        *(write_tracker + 1) = ' ';
+                        write_tracker += 2;
+                    }
+                    *write_tracker = '}';
+                } else {
+                    *(write_tracker - 1) = '\n';
+                    *write_tracker = '}';
+                }
+            } else {
+                if(*(write_tracker - 1) != '{') {
+                    write_tracker--;
+                }
+                *write_tracker = ' ';
+                *(write_tracker + 1) = '}';
+            }
+            break;
+        }
+
+        case 5: {
+
+            *write_tracker = '[';
+            write_tracker++;
+
+            for(size_t i = 0; i < ((vec*)obj_in)->len; i++) {
+                *write_tracker = ' ';
+                write_tracker++;
+                if((nested_obj_seq = objectAsChars(((vec*)obj_in)->ptrs[i], nested_level, oneline))) {
+                    spr_ret = sprintf(write_tracker, "%s", nested_obj_seq);
+                    free(nested_obj_seq);
+                } else {
+                    ;
+                    spr_ret = sprintf(write_tracker, "%s", "");
+                }
+                write_tracker += spr_ret;
+
+                *write_tracker = ',';
+                write_tracker++;
+            }
+            *(write_tracker - 1) = ' ';
+            *write_tracker = ']';
+            break;
+        }
+
+        default: {
+            ;
+        }
+    }
+    output_seq[output_seq_size] = '\0';
+    return output_seq;
+}
+# 18 "./src/mara.h" 2
+
+
+# 1 "./src/interface.h" 1
+
+
+
+
+
+
+
+char*
+inputSeq(const char* prompt) {
+
+    char* input_buf = 
+# 11 "./src/interface.h" 3 4
+                     ((void *)0)
+# 11 "./src/interface.h"
+                         ;
+    char* input_end = 
+# 12 "./src/interface.h" 3 4
+                     ((void *)0)
+# 12 "./src/interface.h"
+                         ;
+
+    if( !(input_buf = calloc(512, sizeof(char)) )) {
+        throwFatal(__func__, "Allocate failed for: input_buf (calloc)");
+    }
+
+    if(prompt == 
+# 18 "./src/interface.h" 3 4
+                ((void *)0)
+# 18 "./src/interface.h"
+                    ) {
+        logMessage(1, "[inputrequest] (no prompt)");
+    } else {
+        logMessage(4, "[inputrequest] (\"", prompt, "\")");
+        printf("%s", prompt);
+    }
+
+    while(!(input_end = seqChar(input_buf, '\n', 512))) {
+        input_buf = fgets(input_buf, 512, 
+# 26 "./src/interface.h" 3 4
+                                                 stdin
+# 26 "./src/interface.h"
+                                                      );
+    }
+    *input_end = '\0';
+
+    return input_buf;
+}
+
+void*
+input(const char* prompt, int TYPE_OUT) {
+
+    char* input_buf = inputSeq(prompt);
+    if(input_buf == 
+# 37 "./src/interface.h" 3 4
+                   ((void *)0)
+# 37 "./src/interface.h"
+                       ) {
+        ;
+        return 
+# 39 "./src/interface.h" 3 4
+              ((void *)0)
+# 39 "./src/interface.h"
+                  ;
+    }
+
+    logMessage(4, "[input] ", "\"", input_buf, "\"");
+
+    void* obj_out = 
+# 44 "./src/interface.h" 3 4
+                   ((void *)0)
+# 44 "./src/interface.h"
+                       ;
+
+    switch(TYPE_OUT) {
+        case 1: {
+            if(!(obj_out = stringInit(input_buf))) {
+                ;
+            }
+            break;
+        }
+        case 2: {
+            if(!(obj_out = seqToInteger(input_buf))) {
+                ;
+            }
+            break;
+        }
+        case 3: {
+            if(!(obj_out = seqToFloat(input_buf))) {
+                ;
+            }
+            break;
+        }
+        default: {
+            ;
+            break;
+        }
+    }
+
+    free(input_buf);
+
+    if(obj_out == 
+# 73 "./src/interface.h" 3 4
+                 ((void *)0)
+# 73 "./src/interface.h"
+                     ) {
+        ;
+    } else {
+        ;
+    }
+
+    return obj_out;
+}
+
+int
+print(void* obj_in) {
+
+    char* print_buf = 
+# 85 "./src/interface.h" 3 4
+                     ((void *)0)
+# 85 "./src/interface.h"
+                         ;
+    
+# 86 "./src/interface.h" 3 4
+   _Bool 
+# 86 "./src/interface.h"
+        oneline = 
+# 86 "./src/interface.h" 3 4
+                  0
+# 86 "./src/interface.h"
+                       ;
+
+    if(obj_in == 
+# 88 "./src/interface.h" 3 4
+                ((void *)0)
+# 88 "./src/interface.h"
+                    ) {
+        ;
+        return 1;
+    }
+
+    if(*(int *)obj_in == 5) {
+        oneline = 
+# 94 "./src/interface.h" 3 4
+                 1
+# 94 "./src/interface.h"
+                     ;
+    }
+
+    if(!(print_buf = objectAsChars(obj_in, 
+# 97 "./src/interface.h" 3 4
+                                          0
+# 97 "./src/interface.h"
+                                               , oneline))) {
+        ;
+        return 2;
+    }
+
+    printf("%s\n", print_buf);
+
+    if(seqLen(print_buf) < 1000) {
+        logMessage(2, "[print] ", print_buf);
+    } else {
+        logMessage(1, "[print] (long object)");
+    }
+
+    free(print_buf);
+
+    ;
+    return 0;
+}
+# 21 "./src/mara.h" 2
+
+# 1 "./src/tests.h" 1
+
+
+
+
+
+int
+doodleTests() {
+    printf("\n%s%s%s\n\n", "\x1B[36m", __func__ , "\x1B[0m");
+    str* name = input("Enter name: ", 1);
+    vec* vec1 = vectorInitV(1, name);
+    vec* vec2 = duplicateVector(vec1);
+    appendToVector(vec2, name);
+    hsh* hash1 = hashInit();
+    itr* itr1 = integerInit(26);
+    addKeyToHash(hash1, "Name", name);
+    moveKeyToHash(hash1, "Age", itr1);
+    addKeyToHash(hash1, "test", name);
+    removeFromHash(hash1, "test");
+    printf("Value of \"Name\" key in hash1: %s\n", ((str*)accessHashValue(hash1, "Name"))->seq);
+    printf("Value of \"Age\" key in hash1: %ld\n", ((itr*)accessHashValue(hash1, "Age"))->val);
+    print(accessHashValue(hash1, "Name"));
+    print(accessHashValue(hash1, "Age"));
+    print(hash1);
+    print(vec2);
+    mat* mat1 = matrixInit(3, 100, 100, "unit");
+    destroyV(5, name,
+                        vec1,
+                        vec2,
+                        hash1,
+                        mat1);
+    return 0;
+}
+
+int
+studentRecordTest() {
+    printf("\n%s%s%s\n\n", "\x1B[36m", __func__ , "\x1B[0m");
+    hsh* hash1 = hashInit();
+    str* str1 = input("Enter name: ", 1);
+    moveKeyToHash(hash1, "Name", str1);
+    moveKeyToHash(hash1, "Major", input("Enter major: ", 1));
+    moveKeyToHash(hash1, "GPA", input("Enter GPA: ", 3));
+    moveKeyToHash(hash1, "Graduation Year", input("Enter graduation year: ", 2));
+    print(hash1);
+    hsh* hash2 = hashInit();
+    moveKeyToHash(hash2, "Student 1", hash1);
+    print(hash2);
+    vec* vec1 = vectorInitV(0);
+    moveToVectorEnd(vec1, hash2);
+    print(vec1);
+    destroy(vec1);
+    return 0;
+}
+
+int
+hashInArrPrintTest() {
+    printf("\n%s%s%s\n\n", "\x1B[36m", __func__ , "\x1B[0m");
+    hsh* hash1 = hashInit();
+    moveKeyToHash(hash1, "Name", input("Enter name: ", 1));
+    vec* vec1 = vectorInitV(0);
+    moveToVectorEnd(vec1, hash1);
+    str* str1 = stringInit("test");
+    moveToVectorEnd(vec1, str1);
+    print(vec1);
+    destroy(vec1);
+    return 0;
+}
+
+int
+floatPrintTest() {
+    flt* float1 = input("enter float: ", 3);
+    print(float1);
+    destroy(float1);
+    return 0;
+}
+
+int hashStressTest() {
+    vec* vec1 = vectorInitV(0);
+    for(int i = 0; i < 100; i++) {
+        moveToVectorEnd(vec1, integerInit(i));
+    }
+    hsh* hash1 = hashInit();
+    char* tmp_name = calloc(16, sizeof(char));
+    sprintf(tmp_name, "key");
+    vec* temp_vec = 
+# 84 "./src/tests.h" 3 4
+                   ((void *)0)
+# 84 "./src/tests.h"
+                       ;
+    for(int i = 0; i < 100; i++) {
+        sprintf(tmp_name + 3, "%d", i);
+        temp_vec = duplicateVector(vec1);
+        moveKeyToHash(hash1, tmp_name, temp_vec);
+    }
+    moveKeyToHash(hash1, "testseq", input("enter a string: ", 1));
+    print(hash1);
+    printf("testseq: %s\n", ((str*)accessHashValue(hash1, "testseq"))->seq);
+    destroy(vec1);
+    destroy(hash1);
+    free(tmp_name);
+    return 0;
+}
+
+int loadVectorWithStrings() {
+
+    vec* vec1 = vectorInitV(0);
+    while(
+# 102 "./src/tests.h" 3 4
+         1
+# 102 "./src/tests.h"
+             ) {
+        moveToVectorEnd(vec1, input(
+# 103 "./src/tests.h" 3 4
+                                   ((void *)0)
+# 103 "./src/tests.h"
+                                       , 1));
+        if(seqSame("END", ((str*)vec1->ptrs[vec1->len - 1])->seq))
+            break;
+    }
+    print(vec1);
+    truncateVector(vec1, vec1->len - 1);
+    print(vec1);
+    destroy(vec1);
+    return 0;
+}
+
+int stringTest() {
+    str* str1 = stringInit("test");
+    str* str2 = stringInit("test2");
+    addString(str1, str2);
+    print(str1);
+    destroyV(2, str1, str2);
+    return 0;
+}
+# 23 "./src/mara.h" 2
+# 2 "./src/mara.c" 2
+
+int main()
+{
+    ;
+
+    hsh* hash1 = hashInit();
+    moveKeyToHash(hash1, "Name", input("Please enter your name: ", 1));
+    hsh* hash2 = duplicate(hash1);
+    print(hash1);
+    print(hash2);
+    changeKey(hash2, "Name", "newKey");
+    vec* vec1 = vectorInitV(0);
+    moveToVectorEnd(vec1, hash1);
+    moveToVectorEnd(vec1, hash2);
+    print(vec1);
+    destroyV(1, vec1);
+
+    print("test");
+    ;
+
+    return 0;
+}
