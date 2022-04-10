@@ -390,14 +390,16 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
             break;
         }
 
-        default: {
+        default: { //assume char* as type
             WARN(FN, "Input object type unrecognized. Assuming char*");
+
             char* temp_seq = seqDupl((char*)obj_in);
-            if(temp_seq == NULL) {
-                throwFatal(FN, "Initialization failed for temp_seq (seqDupl)");
-            } else {
+
+            if(temp_seq != NULL) {
                 free(output_seq);
                 output_seq = temp_seq;
+            } else {
+                throwFatal(FN, "Initialization failed for temp_seq (seqDupl)");
             }
         }
     }

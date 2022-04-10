@@ -32,7 +32,7 @@ openLog() {
         printf("Unable to create log file. Exiting...\n");
         exit(1);
     }
-    fprintf(objopslog, "\nBEGIN\n\n");
+    fprintf(objopslog, "BEGIN\n\n");
 
     return 0;
 }
@@ -83,7 +83,7 @@ throwFatal(const char* func, const char* desc) {
 
     if(objopslog) {
         fprintf(objopslog, "\nFATAL ERROR in %s - %s. Aborting...\n", func, desc);
-        fclose(objopslog);
+        closeLog();
     }
     exit(1);
 }

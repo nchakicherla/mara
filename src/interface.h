@@ -101,8 +101,12 @@ print(void* obj_in) {
 
     printf("%s\n", print_buf);
 
-    if(seqLen(print_buf) < 1000) {
-        logMessage(2, "[print] ", print_buf);
+    if(seqLen(print_buf) < 1024) {
+        if(TYPE_OF(obj_in) != HSH_TYPE) {
+            logMessage(2, "[print] ", print_buf);
+        } else {
+            logMessage(3, "[print]\n", print_buf, "\n");            
+        }
     } else {
         logMessage(1, "[print] (long object)");
     }
