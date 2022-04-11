@@ -99,19 +99,62 @@ print(void* obj_in) {
         return 2;
     }
 
-    printf("%s\n", print_buf);
+    printf("%s\n", print_buf); //single object so printing newline
 
     if(seqLen(print_buf) < 1024) {
         if(TYPE_OF(obj_in) != HSH_TYPE) {
             logMessage(2, "[print] ", print_buf);
         } else {
-            logMessage(3, "[print]\n", print_buf, "\n");            
+            logMessage(2, "[print]\n", print_buf);            
         }
     } else {
-        logMessage(1, "[print] (long object)");
+        logMessage(1, "[print] ( LONG OBJECT )");
     }
 
     free(print_buf);
+
+    SUCCESS(FN);
+    return 0;
+}
+
+int
+printV(int n, ...) {
+
+    va_list obj_args;
+    va_start(obj_args, n);
+    void* current_obj = NULL;
+    char* print_buf = NULL;
+    bool oneline = false;
+
+    for(int i = 0; i < n; i++) {
+        current_obj = va_arg(obj_args, void *);
+
+        if(TYPE_OF(current_obj) == VEC_TYPE) {
+            oneline = true;
+        }
+
+        if(!(print_buf = objectAsChars(current_obj, false, oneline))) {
+            ERROR(INIT_ERR, FN, "Initialization failed for: print_buf (objectAsChars)");
+            return 1;
+        }
+
+        printf("%s", print_buf); //skipping newline in case multiple arguments
+
+        if(seqLen(print_buf) < 1024) {
+            if(TYPE_OF(current_obj) != HSH_TYPE) {
+                logMessage(2, "[printV] ", print_buf);
+            } else {
+                logMessage(2, "[printV]\n", print_buf);            
+            }
+        } else {
+            logMessage(1, "[printV] ( LONG OBJECT )");
+        }
+
+        oneline = false;
+        free(print_buf);
+    }
+
+    printf("\n"); //only printing one newline
 
     SUCCESS(FN);
     return 0;

@@ -67,7 +67,7 @@ accessVector(vec* vec_in, size_t loc) {
 }
 
 vec*
-vectorInitV(size_t len, ...) {
+vectorInitV(int n, ...) {
 
     vec* vec_out = NULL;
     if(!(vec_out = malloc(sizeof(vec)))) {
@@ -75,15 +75,15 @@ vectorInitV(size_t len, ...) {
     }
     vec_out->type = VEC_TYPE;
 
-    if(len != 0) {
-        if(!(vec_out->ptrs = malloc(len * sizeof(void *)))) {
+    if(n != 0) {
+        if(!(vec_out->ptrs = malloc(n * sizeof(void *)))) {
             free(vec_out);
             throwFatal(FN, "Allocate failed for: vec_out->ptrs (malloc)");
         }
         va_list obj_args;
-        va_start(obj_args, len);
+        va_start(obj_args, n);
 
-        for(size_t i = 0; i < len; i++) {
+        for(int i = 0; i < n; i++) {
             vec_out->ptrs[i] = duplicate(va_arg(obj_args, void *));
             if(!vec_out->ptrs[i]) {
                 destroy(vec_out);
@@ -91,7 +91,7 @@ vectorInitV(size_t len, ...) {
                 return NULL;
             }
         }
-        vec_out->len = len;
+        vec_out->len = n;
 
     } else {
         vec_out->ptrs = NULL;

@@ -14,8 +14,9 @@ int main()
     moveToVectorEnd(vec1, hash1);
     moveToVectorEnd(vec1, hash2);
     print(vec1);
-    destroyV(1, vec1);
     print("this is a test");
+    printV(3, NAME(vec1), ": ", vec1);
+    destroyV(1, vec1);
 
     END_LOG();
     return 0;

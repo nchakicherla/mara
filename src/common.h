@@ -84,6 +84,8 @@ void* new_malloc(size_t bytes) {
 //  TYPES AND BOUNDS
 
 #define TYPE_OF(arg)       *(int *)arg
+#define NAME(a) #a
+
 
 #define STR_TYPE            1
 #define ITR_TYPE            2
@@ -304,9 +306,6 @@ duplicateHash(hsh* hash_in);
 
 // ARR
 
-size_t
-vecayLength(void* vec_in);
-
 int
 destroyVector(vec* vec_in);
 
@@ -317,7 +316,7 @@ void*
 accessVector(vec* vec_in, size_t loc);
 
 vec*
-vectorInitV(size_t len, ...);
+vectorInitV(int n, ...);
 
 int
 growVectorPointers(vec* vec_in, size_t new_len);
@@ -357,7 +356,7 @@ int
 destroy(void* obj_in);
 
 int
-destroyV(uint32_t n, ...);
+destroyV(int n, ...);
 
 void*
 duplicate(void* obj_in);
@@ -371,12 +370,15 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline);
 // INTERFACE
 
 char*
-inputSeq(const char* prompt);
+getInputSeq(const char* prompt);
 
 void*
 input(const char* prompt, int TYPE_OUT);
 
 int
 print(void* obj_in);
+
+int
+printV(int n, ...);
 
 #endif // COMMON_H

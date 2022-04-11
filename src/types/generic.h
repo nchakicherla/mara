@@ -44,13 +44,13 @@ destroy(void* obj_in) {
 }
 
 int
-destroyV(uint32_t n, ...) {
+destroyV(int n, ...) {
 
     va_list obj_args;
     va_start(obj_args, n);
     void* current_obj = NULL;
 
-    for(uint32_t i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         current_obj = va_arg(obj_args, void *);
         destroy(current_obj);
     }
