@@ -18,7 +18,7 @@ inputSeq(const char* prompt) {
     if(prompt == NULL) {
         logMessage(1, "[inputrequest] (no prompt)");
     } else {
-        logMessage(4, "[inputrequest] (\"", prompt, "\")");
+        logMessage(3, "[inputrequest] (\"", prompt, "\")");
         printf("%s", prompt);
     }
 

@@ -4,6 +4,13 @@ int main()
 {
     START_LOG();
 
+    loadVectorWithStrings();
+
+    END_LOG();
+    return 0;
+}
+
+/*
     hsh* hash1 = hashInit();
     moveKeyToHash(hash1, "Name", input("Please enter your name: ", STR_TYPE));
     hsh* hash2 = duplicate(hash1);
@@ -17,7 +24,4 @@ int main()
     print("this is a test");
     printV(3, NAME(vec1), ": ", vec1);
     destroyV(1, vec1);
-
-    END_LOG();
-    return 0;
-}
+*/
