@@ -37,7 +37,7 @@ openLog() {
     return 0;
 }
 
-int //for more flexible logging in exception cases (e.g. print() or input() functions)
+int //for more flexible logging in exception cases (e.g. mPrint() or mInput() functions)
 logMessage(int n, ...) {
 
     if(objopslog) {

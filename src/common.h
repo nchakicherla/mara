@@ -373,12 +373,12 @@ char*
 getInputSeq(const char* prompt);
 
 void*
-input(const char* prompt, int TYPE_OUT);
+mInput(const char* prompt, int TYPE_OUT);
 
 int
-print(void* obj_in);
+mPrint(void* obj_in);
 
 int
-printV(int n, ...);
+mPrintV(int n, ...);
 
 #endif // COMMON_H

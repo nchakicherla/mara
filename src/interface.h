@@ -6,7 +6,7 @@
 #define INP_BUF_LEN         512
 
 char*
-inputSeq(const char* prompt) {
+mInputSeq(const char* prompt) {
 
     char* input_buf = NULL;
     char* input_end = NULL;
@@ -30,16 +30,16 @@ inputSeq(const char* prompt) {
     return input_buf;
 }
 
-void* // max length of user input is INP_BUF_LEN - 1
-input(const char* prompt, int TYPE_OUT) {
+void* // max length of user mInput is INP_BUF_LEN - 1
+mInput(const char* prompt, int TYPE_OUT) {
     
-    char* input_buf = inputSeq(prompt);
+    char* input_buf = mInputSeq(prompt);
     if(input_buf == NULL) {
-        ERROR(INIT_ERR, FN, "Initialization failed for: input_buf (inputSeq)");
+        ERROR(INIT_ERR, FN, "Initialization failed for: input_buf (mInputSeq)");
         return NULL;   
     }
 
-    logMessage(4, "[input] ", "\"", input_buf, "\"");
+    logMessage(4, "[mInput] ", "\"", input_buf, "\"");
 
     void* obj_out = NULL;
 
@@ -80,7 +80,7 @@ input(const char* prompt, int TYPE_OUT) {
 }
 
 int
-print(void* obj_in) {
+mPrint(void* obj_in) {
 
     char* print_buf = NULL;
     bool oneline = false;
@@ -103,12 +103,12 @@ print(void* obj_in) {
 
     if(seqLen(print_buf) < 1024) {
         if(TYPE_OF(obj_in) != HSH_TYPE) {
-            logMessage(2, "[print] ", print_buf);
+            logMessage(2, "[mPrint] ", print_buf);
         } else {
-            logMessage(2, "[print]\n", print_buf);            
+            logMessage(2, "[mPrint]\n", print_buf);            
         }
     } else {
-        logMessage(1, "[print] ( LONG OBJECT )");
+        logMessage(1, "[mPrint] ( LONG OBJECT )");
     }
 
     free(print_buf);
@@ -118,7 +118,7 @@ print(void* obj_in) {
 }
 
 int
-printV(int n, ...) {
+mPrintV(int n, ...) {
 
     va_list obj_args;
     va_start(obj_args, n);
@@ -142,12 +142,12 @@ printV(int n, ...) {
 
         if(seqLen(print_buf) < 1024) {
             if(TYPE_OF(current_obj) != HSH_TYPE) {
-                logMessage(2, "[printV] ", print_buf);
+                logMessage(2, "[mPrintV] ", print_buf);
             } else {
-                logMessage(2, "[printV]\n", print_buf);            
+                logMessage(2, "[mPrintV]\n", print_buf);            
             }
         } else {
-            logMessage(1, "[printV] ( LONG OBJECT )");
+            logMessage(1, "[mPrintV] ( LONG OBJECT )");
         }
 
         oneline = false;

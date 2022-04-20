@@ -217,6 +217,10 @@ stringInit(const char* seq_in) {
         ERROR(ARG_ERR, FN, "Input sequence length invalid (length exceeds STR_MAX)");
         return NULL;
     }
+    if(seqLen(seq_in) == 0) {
+        ERROR(ARG_ERR, FN, "Input sequence blank");
+        return NULL;
+    }
 
     str* output_str = NULL;
     if(!(output_str = malloc(sizeof(str)))) {
