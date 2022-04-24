@@ -71,7 +71,7 @@ mInput(const char* prompt, int TYPE_OUT) {
     free(input_buf);
 
     if(obj_out == NULL) {
-        ERROR(ARG_ERR, FN, "Output object blank (NULL)");
+        WARN(FN, "Output object blank (NULL)");
     } else {
         SUCCESS(FN);
     }

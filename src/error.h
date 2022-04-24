@@ -113,7 +113,7 @@ setWarning(const char* func, const char* desc) {
         printf("%s", current_warning);
     }
     if(objopslog) {
-        fprintf(objopslog, "%zu > WARNING in %s - %s\n", msg_counter, func, desc);
+        fprintf(objopslog, "%zu # WARNING in %s - %s\n", msg_counter, func, desc);
     }
     msg_counter++;
 
@@ -129,7 +129,7 @@ setError(char* errtype, const char* func, const char* desc) {
         printf("%s", current_error);
     }
     if(objopslog) {
-        fprintf(objopslog, "%zu > %s in %s - %s\n", msg_counter, errtype, func, desc);
+        fprintf(objopslog, "%zu ! %s in %s - %s\n", msg_counter, errtype, func, desc);
     }
     msg_counter++;
 

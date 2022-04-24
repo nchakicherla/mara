@@ -139,8 +139,8 @@ seqToFloat(char* seq_in) {
     } else if (!e_loc && decimal_loc) {
         fracdigs += (seqLen(seq_in) - (int)(decimal_loc - seq_in + 1));
     }
-    if(fracdigs > 30) {
-        ERROR(ARG_ERR, FN, "Input precision exceeds max 30 fractional digits");
+    if(fracdigs > 15) {
+        ERROR(ARG_ERR, FN, "Input precision exceeds max 15 fractional digits");
         return NULL;
     }
     if(val > 1e20) {
