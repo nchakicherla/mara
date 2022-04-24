@@ -3,7 +3,7 @@
 
 #include "common.h"
 
-#define INP_BUF_LEN         512
+#define INPUT_MAX_LEN         512
 
 char*
 mInputSeq(const char* prompt) {
@@ -11,7 +11,7 @@ mInputSeq(const char* prompt) {
     char* input_buf = NULL;
     char* input_end = NULL;
 
-    if( !(input_buf = calloc(INP_BUF_LEN, sizeof(char)) )) {
+    if( !(input_buf = calloc(INPUT_MAX_LEN, sizeof(char)) )) {
         throwFatal(FN, "Allocate failed for: input_buf (calloc)");
     }
 
@@ -22,15 +22,15 @@ mInputSeq(const char* prompt) {
         printf("%s", prompt);
     }
 
-    while(!(input_end = seqChar(input_buf, '\n', INP_BUF_LEN))) {
-        input_buf = fgets(input_buf, INP_BUF_LEN, stdin);
+    while(!(input_end = seqChar(input_buf, '\n', INPUT_MAX_LEN))) {
+        input_buf = fgets(input_buf, INPUT_MAX_LEN, stdin);
     }
     *input_end = '\0';
 
     return input_buf;
 }
 
-void* // max length of user mInput is INP_BUF_LEN - 1
+void* // max length of user mInput is INPUT_MAX_LEN - 1
 mInput(const char* prompt, int TYPE_OUT) {
     
     char* input_buf = mInputSeq(prompt);
@@ -45,19 +45,19 @@ mInput(const char* prompt, int TYPE_OUT) {
 
     switch(TYPE_OUT) {
         case STR_TYPE: {
-            if(!(obj_out = stringInit(input_buf))) {
+            if(NULL == (obj_out = stringInit(input_buf))) {
                 ERROR(INIT_ERR, FN, "Initialization failed for: obj_out (stringInit)");
             }
             break;
         }
         case ITR_TYPE: {
-            if(!(obj_out = seqToInteger(input_buf))) {
+            if(NULL == (obj_out = seqToInteger(input_buf))) {
                 ERROR(INIT_ERR, FN, "Initialization failed for: obj_out (integerInit)");
             }
             break;
         }
         case FLT_TYPE: {
-            if(!(obj_out = seqToFloat(input_buf))) {
+            if(NULL == (obj_out = seqToFloat(input_buf))) {
                 ERROR(INIT_ERR, FN, "Initialization failed for: obj_out (seqToFloat)");
             }
             break;

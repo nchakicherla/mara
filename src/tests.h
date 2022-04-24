@@ -99,17 +99,15 @@ int hashStressTest() {
 int loadVectorWithStrings() {
 
     vec* vec1 = vectorInitV(0);
-    str* temp_str = NULL;
+    flt* temp_flt = NULL;
 
-    while(NULL != (temp_str = mInput("Enter a string: ", STR_TYPE))) {
-        if(moveToVectorEnd(vec1, temp_str)) { //nonzero on failure
-            break;
-        }
-        temp_str = NULL;
+    while(NULL != (temp_flt = mInput("Enter a float: ", FLT_TYPE))) {
+        moveToVectorEnd(vec1, temp_flt);
+        temp_flt = NULL;
     }
     
     mPrint(vec1);
-    
+        
     destroy(vec1);
     return 0;
 }

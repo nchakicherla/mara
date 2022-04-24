@@ -195,7 +195,7 @@ printedLength(void* obj_in, size_t nested_level, bool oneline) {
 
         case VEC_TYPE: {
             if(!((vec*)obj_in)->ptrs) {
-                return 0;
+                return 9; // [ EMPTY ]
             }
             output_count += 2; //including [ and ] and final space, exclude last comma
             for(size_t i = 0; i < ((vec*)obj_in)->len; i++) {
@@ -226,7 +226,7 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
         return NULL;
     }
     char* output_seq = NULL; // dynamically allocated and returned, freed outside scope 
-    if(!(output_seq = calloc(output_seq_size + 1, sizeof(char)))) {
+    if(NULL == (output_seq = calloc(output_seq_size + 1, sizeof(char))) ) { 
         throwFatal(FN, "Allocate failed for: output_seq (calloc)");
     }
     char* write_tracker = output_seq;
@@ -260,6 +260,7 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
         case FLT_TYPE: {
 
             if( ((flt*)obj_in)->val < 0.001) { //handle small numbers
+
                 char* num_char_buf = NULL;
                 if(!(num_char_buf = calloc(NUM_CHAR_BUF_LEN, sizeof(char)))) {
                     free(output_seq);
@@ -269,7 +270,9 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
                 char* e_loc = seqChar(num_char_buf, 'e', NUM_CHAR_BUF_LEN);
                 char* char_it = e_loc + 2;
                 int exponent = strtol(char_it, NULL, 10);
+
                 sprintf(char_it, "%d", exponent);
+
                 char_it = seqChar(num_char_buf, '.', NUM_CHAR_BUF_LEN) + (size_t)(((flt*)obj_in)->fracdigs - exponent) + 1;
                 size_t remaining_extra_chars = e_loc - char_it;
                 
@@ -277,8 +280,10 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
                     *char_it = *(char_it + remaining_extra_chars);
                     char_it++;
                 }
+                *char_it = '\0';
                 sprintf(output_seq, "%s", num_char_buf);
                 free(num_char_buf);
+
             } else {
                 spr_ret = sprintf(output_seq, "%.*f", ((flt*)obj_in)->fracdigs, ((flt*)obj_in)->val);
                 if(spr_ret > 0) {
@@ -328,7 +333,7 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
                 sprintf(write_tracker, "%s", " : ");
                 write_tracker += 3;
 
-                if((nested_obj_seq = objectAsChars(((hsh*)obj_in)->kvptrs[i]->value, nested_level + 1, oneline))) {
+                if(NULL != (nested_obj_seq = objectAsChars(((hsh*)obj_in)->kvptrs[i]->value, nested_level + 1, oneline))) {
                     spr_ret = sprintf(write_tracker, "%s", nested_obj_seq);
                     free(nested_obj_seq);                    
                 } else {
@@ -367,13 +372,18 @@ objectAsChars(void* obj_in, size_t nested_level, bool oneline) {
         
         case VEC_TYPE: {
 
+            if(((vec*)obj_in)->len == 0) {
+                sprintf(write_tracker, "%s", "[ EMPTY ]");
+                break;
+            }
+
             *write_tracker = '[';
             write_tracker++;
 
             for(size_t i = 0; i < ((vec*)obj_in)->len; i++) {
                 *write_tracker = ' '; //leading space
                 write_tracker++;
-                if((nested_obj_seq = objectAsChars(((vec*)obj_in)->ptrs[i], nested_level, oneline))) {
+                if(NULL != (nested_obj_seq = objectAsChars(((vec*)obj_in)->ptrs[i], nested_level, oneline))) {
                     spr_ret = sprintf(write_tracker, "%s", nested_obj_seq);
                     free(nested_obj_seq);
                 } else {
