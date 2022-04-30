@@ -143,7 +143,7 @@ seqToFloat(char* seq_in) {
         ERROR(ARG_ERR, FN, "Input value exceeds max 30 fractional digits");
         return NULL;
     }
-    if((size_t)(e_loc - seq_in) - 1 > 15) {
+    if(e_loc != NULL && (size_t)(e_loc - seq_in) - 1 > 15) {
         ERROR(ARG_ERR, FN, "Input value exceeds max precision of 15");
         return NULL;
     }

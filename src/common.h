@@ -11,16 +11,6 @@
 #include <float.h>
 #include <time.h>
 
-
-/*
-#define malloc new_malloc
-
-void* new_malloc(size_t bytes) {
-    size_t a = bytes + 3;
-    return NULL;
-}
-
-*/
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
 #define KYEL  "\x1B[33m"

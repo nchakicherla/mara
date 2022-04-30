@@ -82,7 +82,11 @@ void
 throwFatal(const char* func, const char* desc) {
 
     if(objopslog) {
-        fprintf(objopslog, "\nFATAL ERROR in %s - %s. Aborting...\n", func, desc);
+        if(func && desc) {
+            fprintf(objopslog, "\nFATAL ERROR in %s - %s. Aborting...\n", func, desc);
+        } else {
+            fprintf(objopslog, "\nFATAL ERROR. Aborting...\n");
+        }
         closeLog();
     }
     exit(1);
@@ -129,7 +133,7 @@ setError(char* errtype, const char* func, const char* desc) {
         printf("%s", current_error);
     }
     if(objopslog) {
-        fprintf(objopslog, "%zu ! %s in %s - %s\n", msg_counter, errtype, func, desc);
+        fprintf(objopslog, "%zu  ! %s in %s - %s\n", msg_counter, errtype, func, desc);
     }
     msg_counter++;
 
