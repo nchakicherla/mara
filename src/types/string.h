@@ -8,8 +8,13 @@ seqLen(const char* seq_in) {
 
     size_t len = 0;
     const char* it = seq_in;
-    while(*it != '\0' && len <= STR_MAX) {
+    while(*it != '\0') {
         len++, it++;
+    }
+
+    if(len > STR_MAX) {
+        ERROR(ARG_ERR, FN, "Input string length exceeds STR_MAX");
+        return STR_ERR;
     }
 
     return len;
@@ -148,7 +153,7 @@ seqToFloat(char* seq_in) {
         return NULL;
     }
     if(val > 1e20) {
-        ERROR(ARG_ERR, FN, "Input value exceeds max 3e33");
+        ERROR(ARG_ERR, FN, "Input value exceeds max 1e20");
         return NULL;
     }
 
